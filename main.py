@@ -30,9 +30,11 @@ def main():
     LimpiarPantalla()
     cedula_presupuesto_Ventas(mtz_presupuesto_ventas)
     
-    # print('==========================Determinacion Del Saldo De Clientes y Flujo De Efectivo ==========================')
-    # determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual)
-    # LimpiarPantalla()
+    print('==========================Determinacion Del Saldo De Clientes y Flujo De Efectivo ==========================')
+    determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual)
+    LimpiarPantalla()
+    cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_Flujo_Entradas)
+
     # print('==========================Presupuesto De Produccion==========================')
     # presupuesto_produccion()
     

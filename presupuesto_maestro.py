@@ -33,6 +33,7 @@ mtz_presupuesto_produccion = [
     # [unidades_producir_1, unidades_producir_2, total_unidades_producir]
     # ]
 ]
+lista_saldo_Cliente_y_Flujo_Entradas = []
 
 
 
@@ -69,7 +70,7 @@ def presupuesto_ventas():
             unidades_vender_1, unidades_vender_2,
             precio_venta_1, precio_venta_2,
             importe_venta_1, importe_venta_2,
-            importe_venta_total
+            importe_venta_total,
             ])
     LimpiarPantalla()
 
@@ -87,12 +88,18 @@ def determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual):
     totalClientesActual = saldoClientesPasado + ventasImporte
 
     cobranzaAnterior = saldoClientesPasado
-    cobranzaActual = saldoClientesPasado * 0.80
+    cobranzaActual = ventasImporte * 0.80
     entradasActual = cobranzaAnterior + cobranzaActual
 
     saldoClientesActual = +(totalClientesActual) - entradasActual
 
-    return saldoClientesActual
+    lista_saldo_Cliente_y_Flujo_Entradas.append([
+        saldoClientesPasado, ventasImporte,
+        totalClientesActual,
+        cobranzaAnterior, cobranzaActual,
+        entradasActual,
+        saldoClientesActual
+    ])
 
 
 def presupuesto_produccion():
