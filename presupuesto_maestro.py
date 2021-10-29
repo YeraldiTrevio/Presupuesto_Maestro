@@ -1,6 +1,5 @@
 # region importacion
 import os
-import pandas as pd
 # endregion
 
 # Variables Globales
@@ -35,8 +34,11 @@ mtz_presupuesto_produccion = [
 ]
 lista_saldo_Cliente_y_Flujo_Entradas = []
 
+mtz_requerimiento_materiales = [
+]
 
 
+# Funciones del presupuesto de venta
 def presupuesto_ventas():
     while True:
         productos = input('Ingresa la cantidad de productos a vender: ')
@@ -74,7 +76,6 @@ def presupuesto_ventas():
             ])
     LimpiarPantalla()
 
-
 def determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual):
     saldoClientesPasado = float(input(f'Ingresa el saldo de clientes del periodo {periodo_actual-1}: $'))
     ventasImporte = 0 
@@ -101,14 +102,13 @@ def determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual):
         saldoClientesActual
     ])
 
-
 def presupuesto_produccion():
     for elementos in mtz_presupuesto_ventas:
         indice = mtz_presupuesto_ventas.index(elementos)
         for i in elementos:
             nombre = mtz_presupuesto_ventas[indice][0]
-            unidades_vender_1 = mtz_presupuesto_ventas[indice][1][0]
-            unidades_vender_2 = mtz_presupuesto_ventas[indice][1][1]
+            unidades_vender_1 = mtz_presupuesto_ventas[indice][1]
+            unidades_vender_2 = mtz_presupuesto_ventas[indice][2]
             break
         print(f"\n============== Producto: {nombre} ==============")
         inventario_final_1 = int(input('Ingresa el inventario final del 1. semestre: '))
@@ -126,18 +126,20 @@ def presupuesto_produccion():
 
         mtz_presupuesto_produccion.append([
             nombre,
-            [unidades_vender_1, unidades_vender_2],
-            [inventario_final_1, inventario_final_2],
-            [total_unidades_1, total_unidades_2],
-            [inventario_incial_1, inventario_incial_2],
-            [unidades_producir_1, unidades_producir_2, total_unidades_producir]
+            unidades_vender_1, unidades_vender_2,
+            inventario_final_1, inventario_final_2,
+            total_unidades_1, total_unidades_2,
+            inventario_incial_1, inventario_incial_2,
+            unidades_producir_1, unidades_producir_2, total_unidades_producir
         ])
         
         LimpiarPantalla()
-    print()
-    print('='*80)
-    for i in mtz_presupuesto_produccion:
-        print(i)
-        print()
-        print('='*80)
+    # print()
+    # print('='*80)
+    # for i in mtz_presupuesto_produccion:
+    #     print(i)
+    #     print()
+    #     print('='*80)
 
+def requerimientos_materiales():
+    pass
