@@ -1,7 +1,7 @@
 import pandas as pd
 from presupuesto_maestro import LimpiarPantalla
 
-# Imprime la cedula del presupuesto de ventas.
+# Imprime la cedula 1 del presupuesto de ventas.
 def cedula_presupuesto_Ventas(mtz_presupuesto_ventas):
     print('==========================Presupuesto De Ventas==========================')
     mostrar_presupuesto_ventas = pd.DataFrame(mtz_presupuesto_ventas,\
@@ -30,3 +30,8 @@ def cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_
     print(mostrar_saldo_Cliente_y_Flujo_Entradas)
     input('Presiona Enter Para Continuar.')
     LimpiarPantalla()
+
+
+# Realizar impresion de esta cedula ya echa.
+def cedula_presupuesto_produccion(mtz_presupuesto_produccion):
+    print('==========================Presupuesto De Produccion==========================')

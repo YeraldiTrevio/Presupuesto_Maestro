@@ -39,6 +39,7 @@ mtz_requerimiento_materiales = [
 
 
 # Funciones del presupuesto de venta
+# Cedula 1
 def presupuesto_ventas():
     while True:
         productos = input('Ingresa la cantidad de productos a vender: ')
@@ -76,6 +77,7 @@ def presupuesto_ventas():
             ])
     LimpiarPantalla()
 
+# Cedula 2
 def determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual):
     saldoClientesPasado = float(input(f'Ingresa el saldo de clientes del periodo {periodo_actual-1}: $'))
     ventasImporte = 0 
@@ -102,6 +104,7 @@ def determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual):
         saldoClientesActual
     ])
 
+# Cedula 3
 def presupuesto_produccion():
     for elementos in mtz_presupuesto_ventas:
         indice = mtz_presupuesto_ventas.index(elementos)
@@ -141,5 +144,6 @@ def presupuesto_produccion():
     #     print()
     #     print('='*80)
 
+# Cedula 4
 def requerimientos_materiales():
     pass
