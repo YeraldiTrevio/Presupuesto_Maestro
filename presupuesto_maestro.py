@@ -7,34 +7,16 @@ import os
 # region definicion.
 LimpiarPantalla = lambda: os.system('cls')
 mtz_presupuesto_ventas = [
-    # [
-    # 'Teclado',
-    # [100,150],
-    # [350, 250],
-    # [234, 567],
-    # 150.10
-    # ],
-    # [
-    # 'ratones',
-    # [100,150],
-    # [350, 250],
-    # [234, 567],
-    # 150.10
-    # ]
 ]
-mtz_presupuesto_produccion = [
-    # [
-    # nombre,
-    # [unidades_vender_1,unidades_vender_2],
-    # [inventario_final_1, inventario_final_2],
-    # [total_unidades_1, total_unidades_2],
-    # [inventario_inicial_1, inventario_incial_2]
-    # [unidades_producir_1, unidades_producir_2, total_unidades_producir]
-    # ]
-]
-lista_saldo_Cliente_y_Flujo_Entradas = []
 
-mtz_requerimiento_materiales = [
+mtz_presupuesto_produccion = [
+]
+
+lista_saldo_Cliente_y_Flujo_Entradas = [  
+]
+
+mtz_requerimientos_materiales = [
+
 ]
 
 
@@ -146,4 +128,38 @@ def presupuesto_produccion():
 
 # Cedula 4
 def requerimientos_materiales():
-    pass
+    for elementos in mtz_presupuesto_produccion:
+        indice = mtz_presupuesto_produccion.index(elementos)
+        for i in elementos:
+            nombre = mtz_presupuesto_produccion[indice][0]
+            unidades_producir_1 = mtz_presupuesto_produccion[indice][-3]
+            unidades_producir_2 = mtz_presupuesto_produccion[indice][-2]
+            total_unidades_producir = mtz_presupuesto_produccion[indice][-1]
+            break
+        print(f"\n============== Producto: {nombre} ==============\n")
+        print(f'Unidades a producir del 1. Semestre: {unidades_producir_1}')
+        print(f'Unidades a producir del 2. Semestre: {unidades_producir_2}')
+        print(f'\nUnidades a producir: {total_unidades_producir}')
+
+        material_A1 = int(input('Ingresa el requerimiento de material A del smestre 1: '))
+        material_A2 = int(input('Ingresa el requerimiento de material A del semestre 2: '))
+        total_material_A1 = unidades_producir_1 * material_A1
+        total_material_A2 = unidades_producir_2 * material_A2
+
+        material_B1 = int(input('Ingresa el requerimiento de material B del smestre 1: '))
+        material_B2 = int(input('Ingresa el requerimiento de material B del semestre 2: '))
+        total_material_B1 = unidades_producir_1 * material_B1
+        total_material_B2 = unidades_producir_2 * material_B2
+
+        material_C1 = int(input('Ingresa el requerimiento de material C del smestre 1: '))
+        material_C2 = int(input('Ingresa el requerimiento de material C del semestre 2: '))
+        total_material_C1 = unidades_producir_1 * material_C1
+        total_material_C2 = unidades_producir_2 * material_C2
+        
+        mtz_requerimientos_materiales.append([
+            nombre,
+            unidades_producir_1, unidades_producir_2,
+            material_A1, material_A2, total_material_A1, total_material_A2,
+            material_B1, material_B2, total_material_B1, total_material_B2,
+            material_C1, material_C2, total_material_C1, total_material_C2,
+        ])

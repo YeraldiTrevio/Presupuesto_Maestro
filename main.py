@@ -35,8 +35,9 @@ def main():
     LimpiarPantalla()
     cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_Flujo_Entradas)
 
-    # print('==========================Presupuesto De Produccion==========================')
-    # presupuesto_produccion()
+    print('==========================Presupuesto De Produccion==========================')
+    presupuesto_produccion()
+    cedula_presupuesto_produccion(mtz_presupuesto_produccion)
     
 if __name__ == '__main__':
     main()

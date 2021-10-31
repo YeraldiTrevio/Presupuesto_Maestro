@@ -32,6 +32,15 @@ def cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_
     LimpiarPantalla()
 
 
-# Realizar impresion de esta cedula ya echa.
+#Imprime la cedula 3.
 def cedula_presupuesto_produccion(mtz_presupuesto_produccion):
     print('==========================Presupuesto De Produccion==========================')
+    mostrar_presupuesto_produccion = pd.DataFrame(mtz_presupuesto_produccion,\
+        columns= ['Producto', 'Unidades Sem. 1', 'Unidades Sem. 2', 'Inventario Final Sem. 1',
+        'Inventario Final Sem. 1', 'Total Unidades Sem. 1', 'Total Unidades Sem. 2',
+         'Inventario Inicial Sem. 1', 'Inventario Inicial Sem. 2', 'Unidades Producir Sem. 1',
+         'Unidades Producir Sem. 2', 'Total Unidades Producir'])
+         
+    print(mostrar_presupuesto_produccion)
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
