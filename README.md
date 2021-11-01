@@ -42,5 +42,5 @@
   datos para el calculo del presupuesto maestro.
   
   #### cedulas_presupuesto.py
-  Este archivo contiene unicamente los Data Frames de cada una de las cedulas, esto con el fin de poder imprimir en consola, toda la 
-  informacion necesaria de los calculos que se hacen en el archivo *"presupuesto_maestro.py"*
+  Este archivo contiene unicamente los Data Frames y el formato de impresion de cada una de las cedulas, esto con el fin de poder imprimir
+  en consola, toda la informacion necesaria de los calculos que se hacen en el archivo *"presupuesto_maestro.py"*
