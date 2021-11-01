@@ -2,6 +2,15 @@
 
   Este trata de un programa que se ejecuta por linea de comandos/Terminal/Consola, este programa tiene como objetivo hacer el 
   calculo del presupuesto maestro, tal y como se nos enseño durante la clase de la materia de *"Contabilidad Administrativa"*.
+  
+## Sistemas Operativos En Donde Funciona.
+Se estima que el programa funcione **CORRECTAMENTE**  en los 3 principales sistemas operativos **mas usados**, como lo son:
+ - **Windows 7/8/10/11**
+ - **MacOs (En todas sus versiones con soporte)**
+ - **GNU/Linux (En todas sus distribuciones)**
+ 
+ Actualmente solo se logrado verificar que funciona en windows y en GNU/Linux, debido a que son con los equipos con los que
+ se ah logrado hacer pruebas.
 
 ## Información Del Código.
 
