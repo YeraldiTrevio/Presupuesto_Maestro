@@ -26,18 +26,21 @@ def main():
     periodo_actual = int(input('Ingresa el año del periodo a realizar: '))
     LimpiarPantalla()
     print('==========================Presupuesto De Ventas==========================')
-    presupuesto_ventas()
+    # presupuesto_ventas()
     LimpiarPantalla()
     cedula_presupuesto_Ventas(mtz_presupuesto_ventas)
     
     print('==========================Determinacion Del Saldo De Clientes y Flujo De Efectivo ==========================')
-    determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual)
+    # determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual)
     LimpiarPantalla()
     cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_Flujo_Entradas)
 
     print('==========================Presupuesto De Produccion==========================')
-    presupuesto_produccion()
+    # presupuesto_produccion()
     cedula_presupuesto_produccion(mtz_presupuesto_produccion)
-    
+
+    print('==========================Presupuesto De Requerimiento De Materiales========================')
+    # requerimientos_materiales()
+    cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_requerimientos_materiales)
 if __name__ == '__main__':
     main()
