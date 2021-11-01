@@ -1,6 +1,6 @@
 import pandas as pd
 import os
-LimpiarPantalla = lambda: os.system('cls')
+LimpiarPantalla = lambda: os.system('clear')
 
 # Imprime la cedula 1.
 def cedula_presupuesto_Ventas(mtz_presupuesto_ventas):

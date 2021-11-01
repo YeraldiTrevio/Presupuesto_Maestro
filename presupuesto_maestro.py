@@ -1,7 +1,7 @@
 # region importacion
 from cedulas_presupuesto import cedula_requerimientos_materiales
 import os
-LimpiarPantalla = lambda: os.system('cls')
+LimpiarPantalla = lambda: os.system('clear')
 # endregion
 
 # Variables Globales

@@ -5,7 +5,7 @@ from cedulas_presupuesto import *
 # endregion
 
 # region definicion.
-LimpiarPantalla = lambda: os.system('cls')
+LimpiarPantalla = lambda: os.system('clear')
 # endregion
 
 LimpiarPantalla()
