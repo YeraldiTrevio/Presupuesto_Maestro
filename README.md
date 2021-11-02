@@ -40,6 +40,7 @@ Se estima que el programa funcione **CORRECTAMENTE**  en los 3 principales siste
   - main.py.
   - presupuesto_maestro.py
   - cedulas_presupuesto.py
+  - plantillas.py
 
   #### main.py
   Este archivo contiene el funcionamiento básico del programa, es decir , que aqui se guarda unicamente el codigo para la estetica,
@@ -53,3 +54,7 @@ Se estima que el programa funcione **CORRECTAMENTE**  en los 3 principales siste
   #### cedulas_presupuesto.py
   Este archivo contiene unicamente los Data Frames y el formato de impresion de cada una de las cedulas, esto con el fin de poder imprimir
   en consola, toda la informacion necesaria de los calculos que se hacen en el archivo *"presupuesto_maestro.py"*
+
+  #### plantillas.py
+  Este archivo se creo con el fin de organizar mejor el codigo, aqui se guardan las pantillas
+  que se utilizan para adornar el programa.
