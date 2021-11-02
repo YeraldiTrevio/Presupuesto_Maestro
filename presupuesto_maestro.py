@@ -1,10 +1,14 @@
+'''
+    Este archivo contiene las funionalidad principal de todo el programa.
+    Estas funciones son las que se utilizan para hacer el calculo del 
+    presupuesto maestro, y que se encarga de guardar unica y exclusivamente
+    los calculos del presupuesto maestro.
+'''
 # region importacion
-from cedulas_presupuesto import cedula_requerimientos_materiales
 import os
+from plantillas import *
 LimpiarPantalla = lambda: os.system('clear')
 # endregion
-
-# Variables Globales
 
 # region definicion.
 mtz_presupuesto_ventas = [
@@ -21,7 +25,7 @@ mtz_presupuesto_produccion = [
     ['CL', 12000, 10000, 10000, 6500, 22000, 16500, 10000, 10000, 12000, 6500, 18500],
     ['CE', 13500, 11800, 8500, 7500, 22000, 7500, 8500, 8500, 13500, 10800, 24300],
     ['CR', 7000, 8500, 6000, 5000, 13000, 13500, 6000, 6000, 7000, 7500, 14500]
- ]
+]
 
 mtz_requerimientos_materiales = [
     ['CL', 12000, 6500, 1.0, 1.0, 12000.0, 6500.0, 0.5, 0.5, 6000.0, 
@@ -38,10 +42,10 @@ mtz_total_requerimientos_materiales = [
     ['Material C', 492500.0, 372500.0]
 ]
 
-
 # Funciones del presupuesto de venta
 # Cedula 1
 def presupuesto_ventas():
+    # Ingreso de productos a vender
     while True:
         productos = input('Ingresa la cantidad de productos a vender: ')
         try:
@@ -52,8 +56,10 @@ def presupuesto_ventas():
             print('\nPor Favor, ingrese solo un numero entero.')
             input('Presiona Enter para continuar ')
             LimpiarPantalla()
+    # Fin de ingreso de productos a vender
 
-    print('==========================Presupuesto De Ventas==========================\n')
+    # Ingreso de los datos del presupuesto de ventas.
+    plantilla_area('Presupuesto De Ventas')
     for producto in range(productos):
         print(f"\n============== Producto {producto + 1} ==============")
         nombre = input('Ingresa el nombre del producto: ')
@@ -76,12 +82,14 @@ def presupuesto_ventas():
             importe_venta_1, importe_venta_2,
             importe_venta_total,
             ])
-    print("\n=================================================================================\n")
+    # Fin de ingreso de los datos del presupuesto de ventas.
+    plantilla_Finalizacion_SaltoLinea()
     input('\nPresiona Enter Para Continuar.')
     LimpiarPantalla()
 
 # Cedula 2
 def determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual):
+    # Extraccion e ingreso de datos de la cedula 1
     saldoClientesPasado = float(input(f'Ingresa el saldo de clientes del periodo {periodo_actual-1}: $'))
     ventasImporte = 0 
     for elementos in mtz_presupuesto_ventas:
@@ -106,12 +114,15 @@ def determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual):
         entradasActual,
         saldoClientesActual
     ])
-    print("\n=================================================================================\n")
+     # Fin de Extraccion e ingreso de datos de la cedula 1
+
+    plantilla_Finalizacion_SaltoLinea()
     input('Presiona Enter Para Continuar.')
     LimpiarPantalla()
 
 # Cedula 3
 def presupuesto_produccion():
+    # Extraccionde datos de la cedula 2
     for elementos in mtz_presupuesto_ventas:
         indice = mtz_presupuesto_ventas.index(elementos)
         for i in elementos:
@@ -119,6 +130,9 @@ def presupuesto_produccion():
             unidades_vender_1 = mtz_presupuesto_ventas[indice][1]
             unidades_vender_2 = mtz_presupuesto_ventas[indice][2]
             break
+            # Fin de Extraccionde datos de la cedula 2
+
+        # Ingreso de datos del presupuesto de produccion.
         print(f"\n============== Producto: {nombre} ==============")
         inventario_final_1 = int(input('Ingresa el inventario final del 1. semestre: '))
         inventario_final_2 = int(input('Ingresa el inventario final del 2. semestre: '))
@@ -141,19 +155,23 @@ def presupuesto_produccion():
             inventario_incial_1, inventario_incial_2,
             unidades_producir_1, unidades_producir_2, total_unidades_producir
         ])
-    print("\n=================================================================================\n")
+    # Fin de ingreso de datos del presupuesto de produccion.
+    plantilla_Finalizacion_SaltoLinea()
     input('Presiona Enter Para Continuar.')
     LimpiarPantalla()
 
 # Cedula 4
 def requerimientos_materiales():
+    # Creacion de contadores.
     total_rquerimiento_material_A_1 = 0
     total_rquerimiento_material_A_2 = 0
     total_rquerimiento_material_B_1 = 0
     total_rquerimiento_material_B_2 = 0
     total_rquerimiento_material_C_1 = 0
     total_rquerimiento_material_C_2 = 0
+    # Fin de Creacion de contadores.
 
+    # Extraccion de datos de la cedula 3
     for elementos in mtz_presupuesto_produccion:
         indice = mtz_presupuesto_produccion.index(elementos)
         for i in elementos:
@@ -162,6 +180,8 @@ def requerimientos_materiales():
             unidades_producir_2 = mtz_presupuesto_produccion[indice][-2]
             total_unidades_producir = mtz_presupuesto_produccion[indice][-1]
             break
+            # Fin de Extraccion de datos de la cedula 3
+        # Ingreso de datos de requerimientos de materiales.
         print(f"\n============== Producto: {nombre} ==============\n")
         print(f'Unidades a producir del 1. Semestre: {unidades_producir_1}')
         print(f'Unidades a producir del 2. Semestre: {unidades_producir_2}')
@@ -208,7 +228,9 @@ def requerimientos_materiales():
     
     mtz_total_requerimientos_materiales.append(['Material C',
         total_rquerimiento_material_C_1, total_rquerimiento_material_C_2,])
-    print("\n=================================================================================\n")
+    # Fin de ingreso de datos de requerimientos de materiales.
+    
+    plantilla_Finalizacion_SaltoLinea()
     input('Presiona Enter Para Continuar.')
     LimpiarPantalla()
 
