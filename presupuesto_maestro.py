@@ -4,13 +4,14 @@
     presupuesto maestro, y que se encarga de guardar unica y exclusivamente
     los calculos del presupuesto maestro.
 '''
-# region importacion
+# Area de importacion
 import os
 from plantillas import *
-LimpiarPantalla = lambda: os.system('clear')
-# endregion
+# Fin de area de importacion
 
-# region definicion.
+# Variables y Lambas.
+LimpiarPantalla = lambda: os.system('clear')
+
 mtz_presupuesto_ventas = [
     ['CL', 12000, 10000, 300.00, 320.00, 3600000, 3200000, 6800000],
     ['CE', 13500, 11800, 280.00, 310.00, 3780000, 3658000, 7438000],
@@ -54,6 +55,7 @@ mtz_compra_materiales = [
 mtz_total_compra_materiales = [
     [956700.0, 1184310.0, 2141010.0]
 ]
+# Fin de variables y lambdas.
 
 # Funciones del presupuesto de venta
 # Cedula 1
