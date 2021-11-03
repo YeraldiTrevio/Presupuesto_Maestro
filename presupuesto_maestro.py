@@ -42,6 +42,19 @@ mtz_total_requerimientos_materiales = [
     ['Material C', 492500.0, 372500.0]
 ]
 
+mtz_compra_materiales = [
+    ['Material A', 42200.0, 34460.0, 5000, 3000, 47200.0, 37460.0,
+     5000, 5000, 42200.0, 32460.0, 10.0, 12.0, 422000.0, 389520.0], 
+    ['Material B', 21100.0, 17230.0, 3000, 2500, 24100.0, 19730.0,
+     3000, 3000, 21100.0, 16730.0, 2.0, 3.0, 42200.0, 50190.0],
+    ['Material C', 492500.0, 372500.0, 2000, 1800, 494500.0, 374300.0, 
+     2000, 2000, 492500.0, 372300.0, 1.0, 2.0, 492500.0, 744600.0] 
+]
+
+mtz_total_compra_materiales = [
+    [956700.0, 1184310.0, 2141010.0]
+]
+
 # Funciones del presupuesto de venta
 # Cedula 1
 def presupuesto_ventas():
@@ -235,3 +248,65 @@ def requerimientos_materiales():
     LimpiarPantalla()
 
 # Cedula 5
+def presupuesto_compra_materiales():
+    # Creacion de contadores.
+    compras_totales_1 = 0
+    compras_totales_2 = 0
+    compras_totales = 0
+    # Extraccion de datos de la cedula 4.
+    for material in mtz_total_requerimientos_materiales:
+        i = mtz_total_requerimientos_materiales.index(material)
+        for requerimiento in material:
+            nombre_material = mtz_total_requerimientos_materiales[i][0]
+            requerimiento_1 = mtz_total_requerimientos_materiales[i][1]
+            requerimiento_2 = mtz_total_requerimientos_materiales[i][2]
+            break
+        # Fin de Extraccion de datos de la cedula 4.
+
+    # Ingreso de datos del presupuesto de compra de materiales.
+        platillaArea_SaltoLinea(nombre_material)
+
+        inventario_final_1 = int(input('\nIngresa el inventario final del 1. Semestre: '))
+        total_material_1 = requerimiento_1 + inventario_final_1
+        inventario_final_2 = int(input('Ingresa el inventario final del 2. Semestre: '))
+        total_material_2 = requerimiento_2 + inventario_final_2
+
+        inventario_inicial_1 = int(input('\nIngresa el inventario inicial del 1. Semestre: '))
+        material_comprar_1 = +(total_material_1 - inventario_inicial_1)
+        inventario_inicial_2 = int(input('Ingresa el inventario inicial del 2. Semestre: '))
+        material_comprar_2 = +(total_material_2 - inventario_inicial_2)
+
+        precio_compra_1 = float(input('\nIngresa el precio de compra del 1. Semestre: '))
+        total_material_dinero_1 = material_comprar_1 * precio_compra_1
+        precio_compra_2 = float(input('Ingresa el precio de compra del 2. Semestre: '))
+        total_material_dinero_2 = material_comprar_2 * precio_compra_2
+    
+        compras_totales_1 += total_material_dinero_1
+        compras_totales_2 += total_material_dinero_2       
+
+        # Almacenamiento de datos en matrices.
+        mtz_compra_materiales.append([
+            nombre_material,
+            requerimiento_1, requerimiento_2,
+            inventario_final_1, inventario_final_2,
+            total_material_1, total_material_2,
+            inventario_inicial_1, inventario_inicial_2,
+            material_comprar_1, material_comprar_2,
+            precio_compra_1, precio_compra_2, 
+            total_material_dinero_1, total_material_dinero_2,
+        ])
+    
+    compras_totales = compras_totales_1 + compras_totales_2
+    mtz_total_compra_materiales.append([
+        compras_totales_1,
+        compras_totales_2,
+        compras_totales])
+    # Fin de ingreso de datos del presupuesto de compra de materiales.
+
+    LimpiarPantalla()
+    for i in mtz_compra_materiales:
+        print(i)
+    print('================')
+    for i in mtz_total_compra_materiales:
+        print(i)
+

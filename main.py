@@ -51,7 +51,13 @@ def main():
     # Presupuesto de requerimiento de materiales
     plantilla_area('Presupuesto De Requerimiento De Materiales')
     # requerimientos_materiales()
+    LimpiarPantalla()
     cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_requerimientos_materiales)
+
+    # Presupuesto de compras de materiales
+    plantilla_area('Presupuesto De Compras De Materiales')
+    # presupuesto_compra_materiales()
+    LimpiarPantalla()
 
 
 if __name__ == '__main__':
