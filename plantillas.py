@@ -21,6 +21,9 @@ def presentacion_programa():
 def plantilla_area(area):
     print(f'========================== {area} ==========================')
 
+def plantilla_mediana(area):
+    print(f'================================ {area} ================================')
+
 def plantilla_area_grande(area):
     print(f'====================================================== {area} ======================================================')
 # Fin plantillas de area
@@ -33,14 +36,17 @@ def plantilla_finalizacion_ExtraGrande():
     print("======================================================================================================================================================================")
 
 def plantilla_finalizacion_area():
-    print("=================================================================================")
+    print("=============================================================================================")
 # Fin plantillas de finalizacion de area
     
-
 # Plantillas con salto de linea
 def platillaArea_SaltoLinea(area):
     print(f"\n============================ {area} ============================\n")
+    
+def plantillas_Area_Msg_SL(msg,area):
+    print(f"\n====================================== {msg} {area} ======================================\n")
 
 def plantilla_Finalizacion_SaltoLinea():
     print("\n=================================================================================\n")
+# Fin plantillas con salto de linea
     
