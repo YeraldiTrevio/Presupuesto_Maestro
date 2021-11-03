@@ -24,7 +24,7 @@ def main():
     presentacion_programa()
     LimpiarPantalla()
 
-    # Registro de la empresa y periodo
+    # Registro de la empresa y periodo.
     plantilla_area('Registro Datos De La Empresa y Periodo A Trabajar')
     nombre_empresa = input('Ingresa el nombre de la empresa: ')
     periodo_actual = int(input('Ingresa el año del periodo a realizar: '))
