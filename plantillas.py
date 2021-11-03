@@ -4,7 +4,6 @@
     nuevas, con el fin de organizar mejor el codigo.
 """
 
-
 def presentacion_programa():
     print('==================================================================================')
     print('==================================================================================')
@@ -15,7 +14,6 @@ def presentacion_programa():
     print('==================================================================================')
     print('==================================================================================')
     input('Presione Enter Para Continuar... ')
-
 
 # Plantillas de area
 def plantilla_area(area):
