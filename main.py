@@ -43,7 +43,7 @@ def main():
     cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_Flujo_Entradas)
 
     # Presupuesto de produccion
-    plantilla_area('Presupuesto De Produccion')
+    plantilla_mediana('Presupuesto De Produccion')
     # presupuesto_produccion()
     LimpiarPantalla()
     cedula_presupuesto_produccion(mtz_presupuesto_produccion)

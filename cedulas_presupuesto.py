@@ -46,17 +46,25 @@ def cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_
     input('\nPresiona Enter Para Continuar.')
     LimpiarPantalla()
 
-#Imprime la cedula 3 cambiar a algo similar que en la cedula 4.
+#Imprime la cedula 3.
 def cedula_presupuesto_produccion(mtz_presupuesto_produccion):
-    plantilla_area('Presupuesto De Produccion')
-    # Creacion e Impresion de Data Frame
-    mostrar_presupuesto_produccion = pd.DataFrame(mtz_presupuesto_produccion,\
-        columns= ['Producto', 'Unidades Sem. 1', 'Unidades Sem. 2', 'Inventario Final Sem. 1',
-        'Inventario Final Sem. 1', 'Total Unidades Sem. 1', 'Total Unidades Sem. 2',
-         'Inventario Inicial Sem. 1', 'Inventario Inicial Sem. 2', 'Unidades Producir Sem. 1',
-         'Unidades Producir Sem. 2', 'Total Unidades Producir'])
-    # Fin de Creacion e Impresion de Data Frame
-    print(mostrar_presupuesto_produccion)
+    plantilla_mediana('Presupuesto De Produccion')
+    # Funciones locales
+    def mtz(i,elemento):
+        return mtz_presupuesto_produccion[i][elemento]
+    # Fin de funciones locales
+    for producto in mtz_presupuesto_produccion:
+        i = mtz_presupuesto_produccion.index(producto)
+        for e in producto:
+            plantillas_Area_Msg_SL('Producto: ',mtz(i,0))
+            print(f"                        1. Semestre                2. Semestre               Total")
+            print(f"Unidades a Vender\t    {mtz(i,1)}                  \t{mtz(i,2)}")
+            print(f"Inventario Final \t    {mtz(i,3)}                  \t{mtz(i,4)}")
+            print(f"Total de Unidades\t    {mtz(i,5)}                  \t{mtz(i,6)}")
+            print(f"Inventario Incial\t    {mtz(i,7)}                  \t{mtz(i,8)}")
+            print(f"Unidades Producir\t    {mtz(i,9)}                  \t{mtz(i,10)}\t\t     {mtz(i,11)}")
+            break
+
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
     LimpiarPantalla()
