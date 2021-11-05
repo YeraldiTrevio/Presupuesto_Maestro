@@ -55,6 +55,10 @@ mtz_compra_materiales = [
 mtz_total_compra_materiales = [
     [956700.0, 1184310.0, 2141010.0]
 ]
+
+mtz_saldo_Proveedores_y_Flujo_Entradas = [
+    [33500.0, 2141010.0, 2174510.0, 33500.0, 1070505.0, 1104005.0, 1070505.0]
+]
 # Fin de variables y lambdas.
 
 # Funciones del presupuesto de venta
@@ -116,10 +120,17 @@ def determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual):
 
     totalClientesActual = saldoClientesPasado + ventasImporte
 
-    cobranzaAnterior = saldoClientesPasado
-    cobranzaActual = ventasImporte * 0.80
-    entradasActual = cobranzaAnterior + cobranzaActual
 
+    cobranzaAnterior = saldoClientesPasado
+    porcentaje_cobranzaAnterior = float(input\
+        (f'Ingresa el porcentaje de cobranza del {periodo_actual -1}: ')) /100
+    cobranzaAnterior *= porcentaje_cobranzaAnterior
+
+    porcetaje_cobranzaActual = float(input \
+        (f'Ingresa el porcentaje de cobranza del {periodo_actual}: ')) / 100
+    cobranzaActual = ventasImporte * porcetaje_cobranzaActual
+
+    entradasActual = cobranzaAnterior + cobranzaActual
     saldoClientesActual = +(totalClientesActual) - entradasActual
 
     lista_saldo_Cliente_y_Flujo_Entradas.append([
@@ -312,3 +323,38 @@ def presupuesto_compra_materiales():
     for i in mtz_total_compra_materiales:
         print(i)
 
+# Cedula 6.
+def determinacion_saldo_proveedores_flujo_salida(periodo_actual):
+    # Ingreso del saldo pasado
+    SaldoProveedoresPasado = float(input(f'\nIngresa el saldo de proveedores del periodo {periodo_actual-1}: $'))
+    # Extraccion de datos de la cedula 5.
+    compras_actuales = mtz_total_compra_materiales[0][-1]
+    print(f'\nEl importe de las ventas del periodo {periodo_actual} es de: ${compras_actuales}')
+    # Fin Extraccion de datos de la cedula 5.
+
+    # Ingreso de datos de salidas actuales y pasadas.
+    total_proveedores_actual = SaldoProveedoresPasado + compras_actuales
+
+    salidaEfectivo_prov_pasado = SaldoProveedoresPasado
+    porcentaje_prov_pasado = float(input\
+    (f'\nIngresa el porcentaje de salida de proveedores del {periodo_actual -1}: ')) /100
+    salidaEfectivo_prov_pasado *= porcentaje_prov_pasado
+
+
+    salidaEfectivo_prov_actual = compras_actuales
+    porcetaje_cobranzaActual = float(input \
+        (f'\nIngresa el porcentaje de salida de proveedores del {periodo_actual}: ')) / 100
+    salidaEfectivo_prov_actual *= porcetaje_cobranzaActual
+    # fin de ingreso de datos de salidas actuales y pasadas.
+
+    # Calculos para la cedula
+    total_salidas = salidaEfectivo_prov_pasado + salidaEfectivo_prov_actual
+
+    saldo_proveedores_actual = +(total_proveedores_actual) - total_salidas
+    # Fin de calculos para la cedula.
+    
+    mtz_saldo_Proveedores_y_Flujo_Entradas.append([
+        SaldoProveedoresPasado, compras_actuales, total_proveedores_actual,
+        salidaEfectivo_prov_pasado, salidaEfectivo_prov_actual, total_salidas,
+        saldo_proveedores_actual
+    ])

@@ -115,3 +115,6 @@ def cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_req
     input('\nPresiona Enter Para Continuar.')
     LimpiarPantalla()
     # Fin Recorrido mtz_total_requerimientos_materiales
+
+def cedula_compras_materiales(mtz_compra_materiales, mtz_total_compra_materiales):
+    pass
