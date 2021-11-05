@@ -59,6 +59,11 @@ def main():
     # presupuesto_compra_materiales()
     LimpiarPantalla()
 
+    # Determinacion Del Saldo De Proveedores y Flujo De Efectivo
+    plantilla_area('Determinacion Del Saldo De Proveedores y Flujo De Efectivo')
+    #determinacion_saldo_proveedores_flujo_salida(periodo_actual)
+    LimpiarPantalla()
+
 
 if __name__ == '__main__':
     main()
