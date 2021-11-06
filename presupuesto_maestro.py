@@ -316,13 +316,6 @@ def presupuesto_compra_materiales():
         compras_totales])
     # Fin de ingreso de datos del presupuesto de compra de materiales.
 
-    LimpiarPantalla()
-    for i in mtz_compra_materiales:
-        print(i)
-    print('================')
-    for i in mtz_total_compra_materiales:
-        print(i)
-
 # Cedula 6.
 def determinacion_saldo_proveedores_flujo_salida(periodo_actual):
     # Ingreso del saldo pasado
@@ -352,9 +345,43 @@ def determinacion_saldo_proveedores_flujo_salida(periodo_actual):
 
     saldo_proveedores_actual = +(total_proveedores_actual) - total_salidas
     # Fin de calculos para la cedula.
-    
+
     mtz_saldo_Proveedores_y_Flujo_Entradas.append([
         SaldoProveedoresPasado, compras_actuales, total_proveedores_actual,
         salidaEfectivo_prov_pasado, salidaEfectivo_prov_actual, total_salidas,
         saldo_proveedores_actual
     ])
+
+def mano_obra_directa():
+    pass
+
+#Cedula 8 
+def gastos_indirectos_fabricacion():
+    deprec1er = float(input(f'\nIngrese los gastos de depreciación del primer semestre: ')) 
+    deprec2do = float(input(f'Ingrese los gastos de depreciacion del segundo semestre: '))   
+    total_deprec = deprec2do + deprec2do
+
+    segur1er = float(input(f'\nIngrese los gastos de los seguros del primer semestre: '))
+    segur2do = float(input(f'Ingrese los gastos de los seguros del segundo semestre: '))
+    total_segur = segur1er + segur2do
+
+    manten1er = float(input(f'\nIngrese los gastos de mantenimiento del primer semestre: '))
+    manten2do = float(input(f'Ingrese los gastos mantenimiento del segundo semestre: '))
+    total_manten = manten1er + manten2do
+
+    energ1er = float(input(f'\nIngrese los gastos de energéticos de primer semestre: '))
+    energ2do = float(input(f'Ingrese los gastos de energéticos de segundo semestre: '))
+    total_energ = energ1er + energ2do
+
+    var1er = float(input(f'\nIngrese los gastos de varios del primer semestre: '))
+    var2do = float(input(f'Ingrese los gastos de varios del segundo semestre: '))
+    total_var = var1er + var2do
+
+    total_gif_semestre1 = deprec1er + segur1er + manten1er + energ1er + var1er
+    total_gif_semestre2 = deprec2do + segur2do + manten2do + energ2do + var2do
+    total_gif_semestres = total_gif_semestre1 + total_gif_semestre2
+
+    total_horas_mod_anual = float(input('\nIngrese el total de horas M.O.D Anual: '))
+    costo_hora_gif = round((total_gif_semestres / total_horas_mod_anual),2)
+
+    print(f'\nEl costo por hora de gif es: {costo_hora_gif}')

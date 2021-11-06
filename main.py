@@ -58,6 +58,7 @@ def main():
     plantilla_area('Presupuesto De Compras De Materiales')
     # presupuesto_compra_materiales()
     LimpiarPantalla()
+    cedula_compras_materiales(mtz_compra_materiales, mtz_total_compra_materiales)
 
     # Determinacion Del Saldo De Proveedores y Flujo De Efectivo
     plantilla_area('Determinacion Del Saldo De Proveedores y Flujo De Efectivo')
