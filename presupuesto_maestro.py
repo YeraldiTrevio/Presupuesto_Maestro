@@ -59,6 +59,33 @@ mtz_total_compra_materiales = [
 mtz_saldo_Proveedores_y_Flujo_Entradas = [
     [33500.0, 2141010.0, 2174510.0, 33500.0, 1070505.0, 1104005.0, 1070505.0]
 ]
+
+mtz_mano_obra_directa =[
+    ['CL', 12000, 6500, 18500, 2.0, 2.0, 2.0, 24000.0, 13000.0, 37000.0, 15.0, 18.0,
+    360000.0, 234000.0, 594000.0],
+    ['CE', 13500, 10800, 24300, 1.0, 1.0, 1.0, 13500.0, 10800.0, 24300.0, 15.0, 18.0,
+    202500.0, 194400.0, 396900.0],
+    ['CR', 7000, 7500, 14500, 1.5, 1.5, 1.5, 10500.0, 11250.0, 21750.0, 15.0, 18.0, 
+    157500.0, 202500.0, 360000.0]
+]
+
+mtz_total_horas_y_MOD =[
+    # Horas
+    [48000.0, 35050.0, 83050.0],
+    # MOD
+    [720000.0, 630900.0, 1350900.0]
+]
+
+mtz_gastos_indirectos_fab = [
+    [40000.0, 40000.0, 80000.0,
+    12500.0, 12500.0, 25000.0,
+    33000.0, 25000.0, 58000.0,
+    40000.0, 35000.0, 75000.0,
+    12500.0, 12500.0, 25000.0, 
+    138000.0, 125000.0, 263000.0,
+    83050.0,
+    3.17]
+]
 # Fin de variables y lambdas.
 
 # Funciones del presupuesto de venta
@@ -352,8 +379,75 @@ def determinacion_saldo_proveedores_flujo_salida(periodo_actual):
         saldo_proveedores_actual
     ])
 
+# Cedula 7
 def mano_obra_directa():
-    pass
+    # Creacion de contadores.
+    total_mod_1 = 0
+    total_mod_2 = 0
+    total_mod = 0
+
+    CONT_total_horas_requerias_1 = 0
+    CONT_total_horas_requerias_2 = 0
+    CONT_total_horas_requerias = 0
+    # Fin de creacion de contadores.
+
+    # Extraccion de datos de la cedula 3.
+    for producto in mtz_presupuesto_produccion:
+        i = mtz_presupuesto_produccion.index(producto)
+        for e in producto:
+            nombre_producto = mtz_presupuesto_produccion[i][0]
+            unidades_producir_1 = mtz_presupuesto_produccion[i][-3]
+            unidades_producir_2 = mtz_presupuesto_produccion[i][-2]
+            unidades_producir = mtz_presupuesto_produccion[i][-1]
+            break
+        # Fin de extraccion de datos de la cedula 3.
+        plantillas_Area_Msg_SL('Producto:', nombre_producto)
+        # Ingreso de datos de mano de obra directa.
+        horas_requeridas_1 = float(input('\nIngresa las horas requeridas del 1. Semestre: '))
+        horas_requeridas_2 = float(input('Ingresa las horas requeridas del 2. Semestre: '))
+        horas_requeridas = horas_requeridas_1
+        total_horas_requeridas_1 = +(horas_requeridas_1)*(unidades_producir_1)
+        total_horas_requeridas_2 = +(horas_requeridas_2)*(unidades_producir_2)
+        total_horas_requeridas = +(horas_requeridas)*(unidades_producir)
+
+        cuota_hora_1 = float(input('\nIngresa la cuota por hora del 1. Semestre: $'))
+        cuota_hora_2 = float(input('Ingresa la cuota por hora del 2. Semestre: $'))
+        importe_MOD_1 = +(total_horas_requeridas_1)*(cuota_hora_1)
+        importe_MOD_2 = +(total_horas_requeridas_2)*(cuota_hora_2)
+        importe_MOD = +(importe_MOD_1) + (importe_MOD_2)
+        # Fin de ingreso de datos de mano de obra directa.
+
+        # Incremento de contadores.
+        total_mod_1 += importe_MOD_1
+        total_mod_2 += importe_MOD_2
+        total_mod += importe_MOD
+
+        CONT_total_horas_requerias_1 += total_horas_requeridas_1
+        CONT_total_horas_requerias_2 += total_horas_requeridas_2
+        CONT_total_horas_requerias += total_horas_requeridas
+        # Fin de incremento de contadores.
+
+        # Ingreso de datos de mano de obra directa.
+        mtz_mano_obra_directa.append([
+            nombre_producto,
+            unidades_producir_1, unidades_producir_2, unidades_producir,
+            horas_requeridas_1, horas_requeridas_2, horas_requeridas,
+            total_horas_requeridas_1, total_horas_requeridas_2, total_horas_requeridas,
+            cuota_hora_1, cuota_hora_2,
+            importe_MOD_1, importe_MOD_2, importe_MOD
+        ])
+        # Fin de ingreso de datos de mano de obra directa.
+
+    # Ingreso de datos totales de mano de obra directa.
+    mtz_total_horas_y_MOD.append([
+        CONT_total_horas_requerias_1, CONT_total_horas_requerias_2,
+        CONT_total_horas_requerias
+    ])
+
+    mtz_total_horas_y_MOD.append([
+        total_mod_1, total_mod_2, total_mod
+    ])
+    # Fin de ingreso de datos totales de mano de obra directa.
 
 #Cedula 8 
 def gastos_indirectos_fabricacion():
@@ -379,9 +473,21 @@ def gastos_indirectos_fabricacion():
 
     total_gif_semestre1 = deprec1er + segur1er + manten1er + energ1er + var1er
     total_gif_semestre2 = deprec2do + segur2do + manten2do + energ2do + var2do
-    total_gif_semestres = total_gif_semestre1 + total_gif_semestre2
 
-    total_horas_mod_anual = float(input('\nIngrese el total de horas M.O.D Anual: '))
+    total_gif_semestres = total_gif_semestre1 + total_gif_semestre2
+    total_horas_mod_anual = mtz_total_horas_y_MOD[0][-1]
     costo_hora_gif = round((total_gif_semestres / total_horas_mod_anual),2)
 
     print(f'\nEl costo por hora de gif es: {costo_hora_gif}')
+
+    mtz_gastos_indirectos_fab.append([
+        deprec1er, deprec2do, total_deprec,
+        segur1er, segur2do, total_segur,
+        manten1er, manten2do, total_manten,
+        energ1er, energ2do, total_energ,
+        var1er, var2do, total_var,
+        total_gif_semestre1, total_gif_semestre2,
+        total_gif_semestres, 
+        total_horas_mod_anual,
+        costo_hora_gif
+    ])

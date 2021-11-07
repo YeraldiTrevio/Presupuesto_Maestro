@@ -65,6 +65,16 @@ def main():
     #determinacion_saldo_proveedores_flujo_salida(periodo_actual)
     LimpiarPantalla()
 
+    # Presupuesto de Mano de Obra Directa
+    plantilla_area('Presupuesto De Mano De Obra Directa')
+    #mano_obra_directa()
+    LimpiarPantalla()
+
+    # Presupuesto Gastos Indirectos De Fabricacion
+    plantilla_area('Presupuesto Gastos Indirectos De Fabricacion')
+    #gastos_indirectos_fabricacion()
+    LimpiarPantalla()
+
 
 if __name__ == '__main__':
     main()
