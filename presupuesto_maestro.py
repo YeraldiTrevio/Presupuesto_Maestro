@@ -539,5 +539,4 @@ def presupuesto_gastos_operacion():
         Total_gastos_operacion_1, Total_gastos_operacion_2, Total_gastos_operacion
     ])
 
-
 #Cédula 10
