@@ -86,6 +86,12 @@ mtz_gastos_indirectos_fab = [
     83050.0,
     3.17]
 ]
+
+mtz_gastos_operacion = [
+    [7500.0, 7500.0, 15000.0, 125000.0, 125000.0, 250000.0,
+    86750.0, 85580.0, 172330.0, 10000.0, 8000.0, 18000.0, 2500.0,
+    2500.0, 5000.0, 231750.0, 228580.0, 460330.0]
+]
 # Fin de variables y lambdas.
 
 # Funciones del presupuesto de venta
@@ -491,3 +497,47 @@ def gastos_indirectos_fabricacion():
         total_horas_mod_anual,
         costo_hora_gif
     ])
+
+#Cédula 9
+def presupuesto_gastos_operacion():
+    print("Presupuesto de gastos de operación\n")
+    Depr1er = float(input("\nEscribe la cantidad de depreciación del 1er semestre: "))
+    Depr2do = float(input("Escribe la cantidad de depreciación del 2do semestre: "))
+    TotalDepr=(Depr1er+Depr2do)
+    print("Total de Depreciación: ", TotalDepr)
+
+    SueldoySal1er = float(input("\nEscribe la cantidad de sueldos y salarios del 1er semestre: "))
+    SueldoySal2do = float(input("Escribe la cantidad de sueldos y salarios del 1er semestre: "))
+    TotalSuelySal=(SueldoySal1er+SueldoySal2do)
+    print("Total de Sueldos y Salarios: ", TotalSuelySal)
+
+    Comisiones1er = float(input("\nEscribe la cantidad de Comisiones del 1er semestre: "))
+    Comisiones2do=float(input("Escribe la cantidad de Comisiones del 2do semestre: "))
+    TotalComisiones=(Comisiones1er+Comisiones2do)
+    print("Total de Comisiones: ", TotalComisiones) 
+
+    Gastosvar1er = float(input("\nEscribe la cantidad de gastos Varios del 1er semestre: "))
+    Gastosvar2do = float(input("Escribe la cantidad de gastos Varios del 2do semestre: "))
+    TotalVarios=(Gastosvar1er+Gastosvar2do)
+    print("Total de gastos Varios: ", TotalVarios) 
+
+    Intereses1ero = float(input("\nEscribe la cantidad de intereses por obligaciones del 1er semestre: "))
+    Intereses2do = float(input("Escribe la cantidad de intereses por obligaciones del 2do semestre: "))
+    TotalIntereses=(Intereses1ero+Intereses2do)
+    print("Total de intereses por obligaciones", TotalIntereses)
+
+    Total_gastos_operacion_1 = Depr1er + SueldoySal1er + Comisiones1er + Gastosvar1er + Intereses1ero
+    Total_gastos_operacion_2 = Depr2do + SueldoySal2do + Comisiones2do + Gastosvar2do + Intereses2do
+    Total_gastos_operacion=(TotalDepr + TotalSuelySal + TotalComisiones + TotalVarios + TotalIntereses)
+
+    mtz_gastos_operacion.append([
+        Depr1er, Depr2do, TotalDepr,
+        SueldoySal1er, SueldoySal2do, TotalSuelySal,
+        Comisiones1er, Comisiones2do, TotalComisiones,
+        Gastosvar1er, Gastosvar2do, TotalVarios,
+        Intereses1ero, Intereses2do, TotalIntereses,
+        Total_gastos_operacion_1, Total_gastos_operacion_2, Total_gastos_operacion
+    ])
+
+
+#Cédula 10
