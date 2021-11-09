@@ -113,7 +113,6 @@ def cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_req
             break
     plantilla_Finalizacion_SaltoLinea()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
     # Fin Recorrido mtz_total_requerimientos_materiales
 
 # Imprime la cedula 5.
@@ -151,4 +150,3 @@ def cedula_compras_materiales(mtz_compra_materiales, mtz_total_compra_materiales
     
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()

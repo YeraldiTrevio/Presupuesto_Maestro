@@ -6,6 +6,7 @@
 '''
 # Area de importacion
 import os
+from cedulas_presupuesto import *
 from plantillas import *
 # Fin de area de importacion
 
@@ -542,3 +543,35 @@ def presupuesto_gastos_operacion():
     ])
 
 #Cédula 10
+def determinacion_costoUnitario_productosTerminados():
+    print(
+    '''
+    Deberas de ingresar datos, que probablemente esten en alguna de las
+    cedulas anteriormente ingresas.
+    Favor de ingresar una opcion del siguiente menu, si quiere visualizar
+    alguna cedula (Puede mostra mas de una hasta ingresar "X"), de lo 
+    contrario ingrese "X" para no mostrar ninguna cedula...
+    ''')
+    menu_cedula_10()
+    while True:
+        cedulas = input('\nIngrese una opcion: ')
+        if cedulas == '1':
+            plantilla_area_grande('Cedula 4')
+            cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_requerimientos_materiales)
+        elif cedulas == '2':
+            plantilla_area_grande('Cedula 5')
+            cedula_compras_materiales(mtz_compra_materiales, mtz_total_compra_materiales)
+        elif cedulas == '3':
+            plantilla_area_grande('Cedula 6')
+        elif cedulas == '4':
+            plantilla_area_grande('Cedula 7')
+        elif cedulas == '5':
+            LimpiarPantalla()
+        elif cedulas == 'X':
+            break
+        else:
+            print('\nOpcion no valida presione enter para continuar...')
+            LimpiarPantalla()
+            menu_cedula_10()
+
+#determinacion_costoUnitario_productosTerminados()

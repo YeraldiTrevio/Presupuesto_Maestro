@@ -47,4 +47,15 @@ def plantillas_Area_Msg_SL(msg,area):
 def plantilla_Finalizacion_SaltoLinea():
     print("\n=================================================================================\n")
 # Fin plantillas con salto de linea
+
+
+# Menu de cedula 10.
+def menu_cedula_10():
+    print('\n================= Menu De Cedulas =================')
+    print('1. Presupuesto De Requerimientos De Materiales.')
+    print('2. Presupuesto De Compra De Materiales.')
+    print('3. Presupuesto De Mano De Obra Directa.')
+    print('4. Presupuesto De Gastos Indirectos de Fabricacion.')
+    print('5. Limpiar La Pantalla.')
+    print('X. No Mostrar Cedulas.')
     
