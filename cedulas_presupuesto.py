@@ -289,4 +289,32 @@ def cedula_costoUnitario_productosTerminados(mtz_costoUnitario_productosTerminad
 
 # Impresion de la cedula 11.
 def cedula_validacion_inventarios_finales(mtz_validacion_inventarios_finales):
-    pass
+    # Funciones locales
+    def mtz(i,e):
+        return mtz_validacion_inventarios_finales[i][e]
+    # Fin Funciones locales
+    # Impresion de la cedula
+    plantilla_area('Validacion de Inventarios Finales')
+    print()
+    plantilla_area('Inventario final de materiales')
+    print(f"                                     Unidades              Costo unitario      Costo total\n")
+    print(f"Material A                      \t{mtz(0,0)}               \t{mtz(0,1)}         \t{mtz(0,2)}")
+    print(f"Material B                      \t{mtz(0,3)}               \t{mtz(0,4)}         \t{mtz(0,5)}")
+    print(f"Material C                      \t{mtz(0,6)}               \t{mtz(0,7)}         \t{mtz(0,8)}")
+    print(f"Inventario final de materiales                                                 \t{mtz(0,9)}")
+
+    plantilla_area('Inventario final de producto terminado')
+    for producto in mtz_validacion_inventarios_finales:
+        i = mtz_validacion_inventarios_finales.index(producto)
+        for e in producto:
+            if i == 0:
+                continue
+            elif i == len(mtz_validacion_inventarios_finales)-1:
+                continue
+            else: 
+                print(f"Producto {mtz(i,0)}     \t{round(mtz(i,1),2)}            \t${round(mtz(i,2),2)}          \t${round(mtz(i,3),2)}")
+                break  
+    print(f"Inventario final de producto terminado                            \t${round(mtz(-1,0),2)}")
+    plantilla_finalizacion_area()
+    input('\nPresiona Enter Para Continuar.')
+    LimpiarPantalla()

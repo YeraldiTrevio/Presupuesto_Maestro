@@ -111,12 +111,12 @@ def main():
     #* Estados Financieros
     # Estado  De Costos De Produccion Y Ventas.
     plantilla_area('Estado  De Costos De Produccion Y Ventas')
-    estado_costo_produccion_ventas(periodo_actual)
+    #estado_costo_produccion_ventas(periodo_actual)
     LimpiarPantalla()
 
     # Estado De Resultados.
     plantilla_area('Estado De Resultados')
-    estado_resultados(periodo_actual)
+    #estado_resultados(periodo_actual)
     LimpiarPantalla()
 # Fin de la funcion Main.
 
