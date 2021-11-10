@@ -99,6 +99,10 @@ mtz_costoUnitario_productosTerminados = [
 ]
 # Cedula 11
 mtz_validacion_inventarios_finales = [
+    [3000, 12.0, 36000.0, 2500, 3.0, 7500.0, 1800, 2.0, 3600.0, 47100.0],
+    ['CL', 6500, 75.84, 492960.0],
+    ['CE', 7500, 87.37, 655275.0],
+    ['CR', 5000, 68.755, 343775.0]
 ]
 # Fin de variables y lambdas.
 
@@ -645,7 +649,7 @@ def validacion_inventarios_finales():
             Costo Unitario: {costo_unitario_producto}  Total:  {costo_total_producto}')
         inv_final_producto_terminado += costo_total_producto
         print(f'Inventario final de producto terminado: {inv_final_producto_terminado}')
-        
+
         mtz_validacion_inventarios_finales.append([
             nombre_producto,
             unidades_producto, costo_unitario_producto, 
