@@ -113,7 +113,7 @@ mtz_validacion_inventarios_finales = [
 ]
 # Fin de variables y lambdas.
 
-# Funciones del presupuesto de venta
+#*Funciones de las cedulas.
 # Cedula 1
 def presupuesto_ventas():
     # Ingreso de productos a vender
