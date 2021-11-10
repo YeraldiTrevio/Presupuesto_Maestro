@@ -56,11 +56,11 @@ mtz_compra_materiales = [
 mtz_total_compra_materiales = [
     [956700.0, 1184310.0, 2141010.0]
 ]
-# CEDULA 6
+# Cedula 6
 mtz_saldo_Proveedores_y_Flujo_Entradas = [
     [33500.0, 2141010.0, 2174510.0, 33500.0, 1070505.0, 1104005.0, 1070505.0]
 ]
-# CEDULA 7
+# Cedula 7
 mtz_mano_obra_directa =[
     ['CL', 12000, 6500, 18500, 2.0, 2.0, 2.0, 24000.0, 13000.0, 37000.0, 15.0, 18.0,
     360000.0, 234000.0, 594000.0],
@@ -69,16 +69,13 @@ mtz_mano_obra_directa =[
     ['CR', 7000, 7500, 14500, 1.5, 1.5, 1.5, 10500.0, 11250.0, 21750.0, 15.0, 18.0, 
     157500.0, 202500.0, 360000.0]
 ]
-
 mtz_total_horas_y_MOD =[
     # Horas
     [48000.0, 35050.0, 83050.0],
     # MOD
     [720000.0, 630900.0, 1350900.0]
 ]
-# FIN CEDULA 7
-
-# CEDULA 8
+# Cedula 8
 mtz_gastos_indirectos_fab = [
     [40000.0, 40000.0, 80000.0,
     12500.0, 12500.0, 25000.0,
@@ -89,11 +86,20 @@ mtz_gastos_indirectos_fab = [
     83050.0,
     3.17]
 ]
-# CEDULA 9
+# Cedula 9
 mtz_gastos_operacion = [
     [7500.0, 7500.0, 15000.0, 125000.0, 125000.0, 250000.0,
     86750.0, 85580.0, 172330.0, 10000.0, 8000.0, 18000.0, 2500.0,
     2500.0, 5000.0, 231750.0, 228580.0, 460330.0]
+]
+# Cedula 10
+mtz_costoUnitario_productosTerminados = [
+    ['CL', 12.0, 3.0, 2.0, 3.17, 18.0, 1.0, 0.5, 10.0, 2.0, 2.0,
+    12.0, 1.5, 20.0, 36.0, 6.34, 75.84],
+    ['CE', 12.0, 3.0, 2.0, 3.17, 18.0, 1.2, 0.6, 25.0, 1.0, 1.0,
+    14.4, 1.8, 50.0, 18.0, 3.17, 87.37],
+    ['CR', 12.0, 3.0, 2.0, 3.17, 18.0, 2.0, 1.0, 5.0, 1.5, 1.5, 
+    24.0, 3.0, 10.0, 27.0, 4.75, 68.75]
 ]
 # Fin de variables y lambdas.
 
@@ -342,7 +348,7 @@ def presupuesto_compra_materiales():
             inventario_inicial_1, inventario_inicial_2,
             material_comprar_1, material_comprar_2,
             precio_compra_1, precio_compra_2, 
-            total_material_dinero_1, total_material_dinero_2,
+            total_material_dinero_1, total_material_dinero_2
         ])
     
     compras_totales = compras_totales_1 + compras_totales_2
@@ -544,34 +550,57 @@ def presupuesto_gastos_operacion():
 
 #Cédula 10
 def determinacion_costoUnitario_productosTerminados():
-    print(
-    '''
-    Deberas de ingresar datos, que probablemente esten en alguna de las
-    cedulas anteriormente ingresas.
-    Favor de ingresar una opcion del siguiente menu, si quiere visualizar
-    alguna cedula (Puede mostra mas de una hasta ingresar "X"), de lo 
-    contrario ingrese "X" para no mostrar ninguna cedula...
-    ''')
-    menu_cedula_10()
-    while True:
-        cedulas = input('\nIngrese una opcion: ')
-        if cedulas == '1':
-            plantilla_area_grande('Cedula 4')
-            cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_requerimientos_materiales)
-        elif cedulas == '2':
-            plantilla_area_grande('Cedula 5')
-            cedula_compras_materiales(mtz_compra_materiales, mtz_total_compra_materiales)
-        elif cedulas == '3':
-            plantilla_area_grande('Cedula 6')
-        elif cedulas == '4':
-            plantilla_area_grande('Cedula 7')
-        elif cedulas == '5':
-            LimpiarPantalla()
-        elif cedulas == 'X':
+    # Costos materiales y G.I.F.
+    costo_material_A = mtz_compra_materiales[0][-3]
+    costo_material_B = mtz_compra_materiales[1][-3]
+    costo_material_C = mtz_compra_materiales[2][-3]
+    costo_gif = mtz_gastos_indirectos_fab[0][-1]
+    # Fin cosotos materiales.
+    # Recorremos la matriz de los productos.
+    for producto in mtz_requerimientos_materiales:
+        i = mtz_requerimientos_materiales.index(producto)
+        for elemento in producto:
+            nombre_producto = mtz_requerimientos_materiales[i][0]
+            costo_mano_obra = mtz_mano_obra_directa[i][-4]
+            cantidad_material_A = mtz_requerimientos_materiales[i][4]
+            cantidad_material_B = mtz_requerimientos_materiales[i][8]
+            cantidad_material_C = mtz_requerimientos_materiales[i][-3]
+            cantidad_mano_obra = mtz_mano_obra_directa[i][5]
+            cantidad_gif = cantidad_mano_obra
             break
-        else:
-            print('\nOpcion no valida presione enter para continuar...')
-            LimpiarPantalla()
-            menu_cedula_10()
+        plantillas_Area_Msg_SL('Producto:',nombre_producto)
+        costo_unitario_materialA = round((costo_material_A * cantidad_material_A),2)
+        print(f'Costo unitario del material A: {costo_unitario_materialA}')
 
-#determinacion_costoUnitario_productosTerminados()
+        costo_unitario_materialB = round((costo_material_B * cantidad_material_B),2)
+        print(f'Costo unitario del material B: {costo_unitario_materialB}')
+
+        costo_unitario_materialC = round((costo_material_C * cantidad_material_C),2)
+        print(f'Costo unitario del material C: {costo_unitario_materialC}')
+
+        costo_unitario_mano_obra = round((costo_mano_obra * cantidad_mano_obra),2)
+        print(f'Costo unitario de la mano de obra: {costo_unitario_mano_obra}')
+
+        costo_unitario_gif = round((costo_gif * cantidad_gif),2)
+        print(f'Costo unitario del G.I.F: {costo_unitario_gif}')
+
+        costo_unitario_producto= round(
+            (costo_unitario_materialA + 
+             costo_unitario_materialB + 
+             costo_unitario_materialC + 
+             costo_unitario_mano_obra + 
+             costo_unitario_gif)
+             ,2)
+        print(f'Costo unitario total: {costo_unitario_producto}')
+
+        mtz_costoUnitario_productosTerminados.append([
+            nombre_producto,
+            costo_material_A, costo_material_B, costo_material_C, costo_gif, costo_mano_obra,
+            cantidad_material_A, cantidad_material_B, cantidad_material_C, cantidad_mano_obra, cantidad_gif,
+            costo_unitario_materialA, costo_unitario_materialB, costo_unitario_materialC,
+            costo_unitario_mano_obra, costo_unitario_gif,
+            costo_unitario_producto
+        ])
+    input('\nPresione enter para continuar...')
+
+# Cedula 11

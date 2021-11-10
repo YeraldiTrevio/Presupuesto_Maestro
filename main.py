@@ -19,6 +19,7 @@ LimpiarPantalla = lambda: os.system('clear')
 # fin de area de variables y lambdas.
 
 LimpiarPantalla()
+# Funcion Main.
 def main():
     # Desplegar menu de bienvendia
     presentacion_programa()
@@ -77,6 +78,12 @@ def main():
     #gastos_indirectos_fabricacion()
     LimpiarPantalla()
 
+    # Determinacion Del Costo Unitario De Productos Terminados.
+    plantilla_area('Determinacion Del Costo Unitario De Productos Terminados')
+    determinacion_costoUnitario_productosTerminados()
+    LimpiarPantalla()
+# Fin de la funcion Main.
 
+# Ejecucion del programa.
 if __name__ == '__main__':
     main()
