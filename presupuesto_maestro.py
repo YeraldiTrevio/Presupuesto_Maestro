@@ -14,42 +14,42 @@ from plantillas import *
 LimpiarPantalla = lambda: os.system('clear')
 # Cedula 1
 mtz_presupuesto_ventas = [
-    ['CL', 12000, 10000, 300.00, 320.00, 3600000, 3200000, 6800000],
-    ['CE', 13500, 11800, 280.00, 310.00, 3780000, 3658000, 7438000],
-    ['CR', 7000, 8500, 185.00, 200.00, 1295000, 1700000, 2995000]              
+    ['CL', 12000, 10000, 300.0, 320.0, 3600000.0, 3200000.0, 6800000.0],
+    ['CE', 13500, 11800, 280.0, 310.0, 3780000.0, 3658000.0, 7438000.0],
+    ['CR', 7000, 8500, 185.0, 200.0, 1295000.0, 1700000.0, 2995000.0]            
 ]
 # Cedula 2
 lista_saldo_Cliente_y_Flujo_Entradas = [
-    [80000, 17233000, 17313000, 80000, 13786400, 13866400, 3446600] 
+   [8000.0, 17233000.0, 17241000.0, 8000.0, 13786400.0, 13794400.0, 3446600.0] 
 ]
 # Cedula 3
 mtz_presupuesto_produccion = [
     ['CL', 12000, 10000, 10000, 6500, 22000, 16500, 10000, 10000, 12000, 6500, 18500],
-    ['CE', 13500, 11800, 8500, 7500, 22000, 7500, 8500, 8500, 13500, 10800, 24300],
+    ['CE', 13500, 11800, 8500, 7500, 22000, 19300, 8500, 8500, 13500, 10800, 24300],
     ['CR', 7000, 8500, 6000, 5000, 13000, 13500, 6000, 6000, 7000, 7500, 14500]
 ]
 # Cedula 4
 mtz_requerimientos_materiales = [
-    ['CL', 12000, 6500, 1.0, 1.0, 12000.0, 6500.0, 0.5, 0.5, 6000.0, 
-    3250.0, 10.0, 10.0, 120000.0, 65000.0],
-    ['CE', 13500, 10800, 1.2, 1.2, 16200.0, 12960.0, 0.6, 0.6, 8100.0
-    , 6480.0, 25.0, 25.0, 337500.0, 270000.0],
-    ['CR', 7000, 7500, 2.0, 2.0, 14000.0, 15000.0, 1.0, 1.0, 7000.0
-    , 7500.0, 5.0, 5.0, 35000.0, 37500.0]
+    ['CL', 12000, 6500, 1.0, 1.0, 12000.0, 6500.0, 0.5, 0.5, 
+    6000.0, 3250.0, 10.0, 10.0, 120000.0, 65000.0],
+    ['CE', 13500, 10800, 1.2, 1.2, 16200.0, 12960.0, 0.6, 0.6, 
+    8100.0, 6480.0, 25.0, 25.0, 337500.0, 270000.0],
+    ['CR', 7000, 7500, 2.0, 2.0, 14000.0, 15000.0, 1.0, 1.0, 
+    7000.0, 7500.0, 5.0, 5.0, 35000.0, 37500.0]
 ]
 mtz_total_requerimientos_materiales = [
-    ['Material A', 42200.0, 34460.0], 
-    ['Material B', 21100.0, 17230.0], 
+    ['Material A', 42200.0, 34460.0],
+    ['Material B', 21100.0, 17230.0],
     ['Material C', 492500.0, 372500.0]
 ]
 # Cedula 5
 mtz_compra_materiales = [
-    ['Material A', 42200.0, 34460.0, 5000, 3000, 47200.0, 37460.0,
-     5000, 5000, 42200.0, 32460.0, 10.0, 12.0, 422000.0, 389520.0], 
-    ['Material B', 21100.0, 17230.0, 3000, 2500, 24100.0, 19730.0,
-     3000, 3000, 21100.0, 16730.0, 2.0, 3.0, 42200.0, 50190.0],
-    ['Material C', 492500.0, 372500.0, 2000, 1800, 494500.0, 374300.0, 
-     2000, 2000, 492500.0, 372300.0, 1.0, 2.0, 492500.0, 744600.0] 
+    ['Material A', 42200.0, 34460.0, 5000, 3000, 47200.0, 37460.0, 5000, 5000, 42200.0, 32460.0, 
+    10.0, 12.0, 422000.0, 389520.0],
+    ['Material B', 21100.0, 17230.0, 3000, 2500, 24100.0, 19730.0, 3000, 3000, 21100.0, 16730.0,
+    2.0, 3.0, 42200.0, 50190.0],
+    ['Material C', 492500.0, 372500.0, 2000, 1800, 494500.0, 374300.0, 2000, 2000, 492500.0, 372300.0,
+     1.0, 2.0, 492500.0, 744600.0]
 ]
 mtz_total_compra_materiales = [
     [956700.0, 1184310.0, 2141010.0]
@@ -62,7 +62,7 @@ mtz_saldo_Proveedores_y_Flujo_Entradas = [
 mtz_mano_obra_directa =[
     ['CL', 12000, 6500, 18500, 2.0, 2.0, 2.0, 24000.0, 13000.0, 37000.0, 15.0, 18.0,
     360000.0, 234000.0, 594000.0],
-    ['CE', 13500, 10800, 24300, 1.0, 1.0, 1.0, 13500.0, 10800.0, 24300.0, 15.0, 18.0,
+    ['CE', 13500, 10800, 24300, 1.0, 1.0, 1.0, 13500.0, 10800.0, 24300.0, 15.0, 18.0, 
     202500.0, 194400.0, 396900.0],
     ['CR', 7000, 7500, 14500, 1.5, 1.5, 1.5, 10500.0, 11250.0, 21750.0, 15.0, 18.0, 
     157500.0, 202500.0, 360000.0]
@@ -75,34 +75,41 @@ mtz_total_horas_y_MOD =[
 ]
 # Cedula 8
 mtz_gastos_indirectos_fab = [
-    [40000.0, 40000.0, 80000.0,
-    12500.0, 12500.0, 25000.0,
-    33000.0, 25000.0, 58000.0,
-    40000.0, 35000.0, 75000.0,
+    [40000.0, 40000.0, 80000.0, 
     12500.0, 12500.0, 25000.0, 
-    138000.0, 125000.0, 263000.0,
-    83050.0,
-    3.17]
+    33000.0, 25000.0, 58000.0, 
+    40000.0, 35000.0, 75000.0, 
+    12500.0, 12500.0, 25000.0, 
+    138000.0, 125000.0, 263000.0, 
+    83050.0, 
+    3.1667670078266106]
 ]
 # Cedula 9
 mtz_gastos_operacion = [
-    [7500.0, 7500.0, 15000.0, 125000.0, 125000.0, 250000.0,
-    86750.0, 85580.0, 172330.0, 10000.0, 8000.0, 18000.0, 2500.0,
-    2500.0, 5000.0, 231750.0, 228580.0, 460330.0]
+    [7500.0, 7500.0, 15000.0,
+    125000.0, 125000.0, 250000.0, 
+    86750.0, 85580.0, 172330.0, 
+    10000.0, 8000.0, 18000.0, 
+    2500.0, 2500.0, 5000.0, 
+    231750.0, 228580.0, 460330.0]
 ]
 # Cedula 10
 mtz_costoUnitario_productosTerminados = [
-    ['CL', 12.0, 3.0, 2.0, 3.17, 18.0, 1.0, 0.5, 10.0, 2.0, 2.0, 12.0, 1.5, 20.0, 36.0, 6.34, 75.84],
-    ['CE', 12.0, 3.0, 2.0, 3.17, 18.0, 1.2, 0.6, 25.0, 1.0, 1.0, 14.399999999999999, 1.7999999999999998,
-    50.0, 18.0, 3.17, 87.37],
-    ['CR', 12.0, 3.0, 2.0, 3.17, 18.0, 2.0, 1.0, 5.0, 1.5, 1.5, 24.0, 3.0, 10.0, 27.0, 4.755, 68.755]
+    ['CL', 12.0, 3.0, 2.0, 3.1667670078266106, 18.0, 1.0, 0.5, 10.0, 2.0, 2.0, 12.0,
+     1.5, 20.0, 36.0, 6.333534015653221, 75.83353401565321],
+
+    ['CE', 12.0, 3.0, 2.0, 3.1667670078266106, 18.0, 1.2, 0.6, 25.0, 1.0, 1.0,
+     14.399999999999999, 1.7999999999999998, 50.0, 18.0, 3.1667670078266106, 87.36676700782661],
+
+    ['CR', 12.0, 3.0, 2.0, 3.1667670078266106, 18.0, 2.0, 1.0, 5.0, 1.5, 1.5, 24.0,
+     3.0, 10.0, 27.0, 4.750150511739916, 68.75015051173992]
 ]
 # Cedula 11
 mtz_validacion_inventarios_finales = [
     [3000, 12.0, 36000.0, 2500, 3.0, 7500.0, 1800, 2.0, 3600.0, 47100.0],
-    ['CL', 6500, 75.84, 492960.0],
-    ['CE', 7500, 87.37, 655275.0],
-    ['CR', 5000, 68.755, 343775.0]
+    ['CL', 6500, 75.83353401565321, 492917.9711017459],
+    ['CE', 7500, 87.36676700782661, 655250.7525586996],
+    ['CR', 5000, 68.75015051173992, 343750.7525586996]
 ]
 # Fin de variables y lambdas.
 
@@ -185,6 +192,7 @@ def determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual):
         entradasActual,
         saldoClientesActual
     ])
+
      # Fin de Extraccion e ingreso de datos de la cedula 1
 
     plantilla_Finalizacion_SaltoLinea()
@@ -300,7 +308,6 @@ def requerimientos_materiales():
     mtz_total_requerimientos_materiales.append(['Material C',
         total_rquerimiento_material_C_1, total_rquerimiento_material_C_2,])
     # Fin de ingreso de datos de requerimientos de materiales.
-    
     plantilla_Finalizacion_SaltoLinea()
     input('Presiona Enter Para Continuar.')
     LimpiarPantalla()
@@ -360,6 +367,9 @@ def presupuesto_compra_materiales():
         compras_totales_2,
         compras_totales])
     # Fin de ingreso de datos del presupuesto de compra de materiales.
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
 
 # Cedula 6.
 def determinacion_saldo_proveedores_flujo_salida(periodo_actual):
@@ -396,6 +406,9 @@ def determinacion_saldo_proveedores_flujo_salida(periodo_actual):
         salidaEfectivo_prov_pasado, salidaEfectivo_prov_actual, total_salidas,
         saldo_proveedores_actual
     ])
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
 
 # Cedula 7
 def mano_obra_directa():
@@ -466,6 +479,9 @@ def mano_obra_directa():
         total_mod_1, total_mod_2, total_mod
     ])
     # Fin de ingreso de datos totales de mano de obra directa.
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
 
 #Cedula 8 
 def gastos_indirectos_fabricacion():
@@ -494,7 +510,7 @@ def gastos_indirectos_fabricacion():
 
     total_gif_semestres = total_gif_semestre1 + total_gif_semestre2
     total_horas_mod_anual = mtz_total_horas_y_MOD[0][-1]
-    costo_hora_gif = round((total_gif_semestres / total_horas_mod_anual),2)
+    costo_hora_gif = total_gif_semestres / total_horas_mod_anual
 
     print(f'\nEl costo por hora de gif es: {costo_hora_gif}')
 
@@ -509,38 +525,41 @@ def gastos_indirectos_fabricacion():
         total_horas_mod_anual,
         costo_hora_gif
     ])
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
 
 #Cédula 9
 def presupuesto_gastos_operacion():
     print("Presupuesto de gastos de operación\n")
     Depr1er = float(input("\nEscribe la cantidad de depreciación del 1er semestre: "))
     Depr2do = float(input("Escribe la cantidad de depreciación del 2do semestre: "))
-    TotalDepr=(Depr1er+Depr2do)
+    TotalDepr=Depr1er+Depr2do
     print("Total de Depreciación: ", TotalDepr)
 
     SueldoySal1er = float(input("\nEscribe la cantidad de sueldos y salarios del 1er semestre: "))
     SueldoySal2do = float(input("Escribe la cantidad de sueldos y salarios del 1er semestre: "))
-    TotalSuelySal=(SueldoySal1er+SueldoySal2do)
+    TotalSuelySal=SueldoySal1er+SueldoySal2do
     print("Total de Sueldos y Salarios: ", TotalSuelySal)
 
     Comisiones1er = float(input("\nEscribe la cantidad de Comisiones del 1er semestre: "))
     Comisiones2do=float(input("Escribe la cantidad de Comisiones del 2do semestre: "))
-    TotalComisiones=(Comisiones1er+Comisiones2do)
+    TotalComisiones=Comisiones1er+Comisiones2do
     print("Total de Comisiones: ", TotalComisiones) 
 
     Gastosvar1er = float(input("\nEscribe la cantidad de gastos Varios del 1er semestre: "))
     Gastosvar2do = float(input("Escribe la cantidad de gastos Varios del 2do semestre: "))
-    TotalVarios=(Gastosvar1er+Gastosvar2do)
+    TotalVarios=Gastosvar1er+Gastosvar2do
     print("Total de gastos Varios: ", TotalVarios) 
 
     Intereses1ero = float(input("\nEscribe la cantidad de intereses por obligaciones del 1er semestre: "))
     Intereses2do = float(input("Escribe la cantidad de intereses por obligaciones del 2do semestre: "))
-    TotalIntereses=(Intereses1ero+Intereses2do)
+    TotalIntereses=Intereses1ero+Intereses2do
     print("Total de intereses por obligaciones", TotalIntereses)
 
     Total_gastos_operacion_1 = Depr1er + SueldoySal1er + Comisiones1er + Gastosvar1er + Intereses1ero
     Total_gastos_operacion_2 = Depr2do + SueldoySal2do + Comisiones2do + Gastosvar2do + Intereses2do
-    Total_gastos_operacion=(TotalDepr + TotalSuelySal + TotalComisiones + TotalVarios + TotalIntereses)
+    Total_gastos_operacion=TotalDepr + TotalSuelySal + TotalComisiones + TotalVarios + TotalIntereses
 
     mtz_gastos_operacion.append([
         Depr1er, Depr2do, TotalDepr,
@@ -550,6 +569,9 @@ def presupuesto_gastos_operacion():
         Intereses1ero, Intereses2do, TotalIntereses,
         Total_gastos_operacion_1, Total_gastos_operacion_2, Total_gastos_operacion
     ])
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
 
 #Cédula 10
 def determinacion_costoUnitario_productosTerminados():
@@ -572,19 +594,19 @@ def determinacion_costoUnitario_productosTerminados():
             cantidad_gif = cantidad_mano_obra
             break
         plantillas_Area_Msg_SL('Producto:',nombre_producto)
-        costo_unitario_materialA = (costo_material_A * cantidad_material_A)
+        costo_unitario_materialA = costo_material_A * cantidad_material_A
         print(f'Costo unitario del material A: {costo_unitario_materialA}')
 
-        costo_unitario_materialB = (costo_material_B * cantidad_material_B)
+        costo_unitario_materialB = costo_material_B * cantidad_material_B
         print(f'Costo unitario del material B: {costo_unitario_materialB}')
 
-        costo_unitario_materialC = (costo_material_C * cantidad_material_C)
+        costo_unitario_materialC = costo_material_C * cantidad_material_C
         print(f'Costo unitario del material C: {costo_unitario_materialC}')
 
-        costo_unitario_mano_obra = (costo_mano_obra * cantidad_mano_obra)
+        costo_unitario_mano_obra = costo_mano_obra * cantidad_mano_obra
         print(f'Costo unitario de la mano de obra: {costo_unitario_mano_obra}')
 
-        costo_unitario_gif = (costo_gif * cantidad_gif)
+        costo_unitario_gif = costo_gif * cantidad_gif
         print(f'Costo unitario del G.I.F: {costo_unitario_gif}')
 
         costo_unitario_producto= costo_unitario_materialA+costo_unitario_materialB+costo_unitario_materialC+costo_unitario_mano_obra + costo_unitario_gif
@@ -599,9 +621,9 @@ def determinacion_costoUnitario_productosTerminados():
             costo_unitario_mano_obra, costo_unitario_gif,
             costo_unitario_producto
         ])
-    input('\nPresione enter para continuar...')
-    for i in mtz_costoUnitario_productosTerminados:
-        print(i)
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
 
 # Cedula 11
 def validacion_inventarios_finales():
@@ -645,14 +667,24 @@ def validacion_inventarios_finales():
             costo_unitario_producto = mtz_costoUnitario_productosTerminados[i][-1]
             break
         costo_total_producto = +(unidades_producto) * costo_unitario_producto
-        print(f'Producto: {nombre_producto}   Unidades: {unidades_producto}   \
-            Costo Unitario: {costo_unitario_producto}  Total:  {costo_total_producto}')
+
+        plantillas_Area_Msg_SL('Producto:',nombre_producto)
+        print(f'Unidades: {unidades_producto}')
+        print(f'Costo unitario: {costo_unitario_producto}')
+        print(f'Costo total: {costo_total_producto}')
+
         inv_final_producto_terminado += costo_total_producto
-        print(f'Inventario final de producto terminado: {inv_final_producto_terminado}')
+        print(f'\nInventario final de producto terminado: {inv_final_producto_terminado}')
 
         mtz_validacion_inventarios_finales.append([
             nombre_producto,
             unidades_producto, costo_unitario_producto, 
             costo_total_producto])
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
 
-validacion_inventarios_finales()
+#* Presupuesto Financiero
+# Estado De Costo De Produccion Y Ventas.
+def estado_costo_produccion_ventas():
+    pass

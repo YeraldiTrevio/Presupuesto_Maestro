@@ -1,3 +1,8 @@
+'''
+    Este arhivo es el encargado de imprimir las cedulas.
+    Utilizando las matrices, y los datos que se van guardando
+    en las mismas.
+'''
 # Area de importacion.
 import pandas as pd
 import os
@@ -263,23 +268,25 @@ def cedula_costoUnitario_productosTerminados(mtz_costoUnitario_productosTerminad
     # Funciones Locales
     def mtz(indice, elemento):
         return mtz_costoUnitario_productosTerminados[indice][elemento]
-    plantilla_area('Determinacion Del Costo Unitario De Productos Terminados')
     # Fin Funciones Locales
     # Recorrer mtz_costoUnitario_productosTerminados
+    plantilla_area('Determinacion Del Costo Unitario De Productos Terminados')
     for requerimiento in mtz_costoUnitario_productosTerminados:
         i = mtz_costoUnitario_productosTerminados.index(requerimiento)
         for e in requerimiento:
             print(f"\n===================================== Producto: {mtz(i,0)} ====================================\n")
             print(f"                                \t1. Costo     2. Cantidad\tCosto Unitario\n")
-            print(f"Material A                      \t ${mtz(i,1)}        \t{mtz(i,2)}           \t    ${mtz(i,3)}")
-            print(f"Material B                      \t ${mtz(i,4)}        \t{mtz(i,5)}           \t    ${mtz(i,6)}")
-            print(f"Material C                      \t ${mtz(i,7)}        \t{mtz(i,8)}           \t    ${mtz(i,9)}")
-            print(f"Mano de obra                    \t ${mtz(i,10)}       \t{mtz(i,11)}          \t    ${mtz(i,12)}")
-            print(f"Gastos indirectos de fabricacion\t ${mtz(i,13)}       \t{mtz(i,11)}          \t    ${mtz(i,14)}")
-            print(f"Costo unitario                                                         \t    ${mtz(i,15)}")
+            print(f"Material A                      \t ${round(mtz(i,1),2)}        \t{round(mtz(i,2),2)}           \t    ${round(mtz(i,3),2)}")
+            print(f"Material B                      \t ${round(mtz(i,4),2)}        \t{round(mtz(i,5),2)}           \t    ${round(mtz(i,6),2)}")
+            print(f"Material C                      \t ${round(mtz(i,7),2)}        \t{round(mtz(i,8),2)}           \t    ${round(mtz(i,9),2)}")
+            print(f"Mano de obra                    \t ${round(mtz(i,10),2)}       \t{round(mtz(i,11),2)}          \t    ${round(mtz(i,12),2)}")
+            print(f"Gastos indirectos de fabricacion\t ${round(mtz(i,13),2)}       \t{round(mtz(i,11),2)}          \t    ${round(mtz(i,14),2)}")
+            print(f"Costo unitario                                                         \t    ${round(mtz(i,15),2)}")
             break   
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
     LimpiarPantalla()
 
 # Impresion de la cedula 11.
+def cedula_validacion_inventarios_finales(mtz_validacion_inventarios_finales):
+    pass

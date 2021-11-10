@@ -33,35 +33,35 @@ def main():
     # Cedula 1.
     # Presupuesto de ventas
     plantilla_area('Presupuesto De Ventas')
-    # presupuesto_ventas()
+    #presupuesto_ventas()
     LimpiarPantalla()
     cedula_presupuesto_Ventas(mtz_presupuesto_ventas)
 
     # Cedula 2.
     # Determinacion Del Saldo De Clientes y Flujo De Efectivo
     plantilla_area('Determinacion Del Saldo De Clientes y Flujo De Efectivo')
-    # determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual)
+    #determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual)
     LimpiarPantalla()
     cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_Flujo_Entradas)
 
     # Cedula 3.
     # Presupuesto de produccion
     plantilla_mediana('Presupuesto De Produccion')
-    # presupuesto_produccion()
+    #presupuesto_produccion()
     LimpiarPantalla()
     cedula_presupuesto_produccion(mtz_presupuesto_produccion)
 
     # Cedula 4.
     # Presupuesto de requerimiento de materiales
     plantilla_area('Presupuesto De Requerimiento De Materiales')
-    # requerimientos_materiales()
+    #requerimientos_materiales()
     LimpiarPantalla()
     cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_requerimientos_materiales)
 
     # Cedula 5.
     # Presupuesto de compras de materiales
     plantilla_area('Presupuesto De Compras De Materiales')
-    # presupuesto_compra_materiales()
+    #presupuesto_compra_materiales()
     LimpiarPantalla()
     cedula_compras_materiales(mtz_compra_materiales, mtz_total_compra_materiales)
 
@@ -99,6 +99,14 @@ def main():
     #determinacion_costoUnitario_productosTerminados()
     LimpiarPantalla()
     cedula_costoUnitario_productosTerminados(mtz_costoUnitario_productosTerminados)
+
+    # Cedula 11.
+    # Validacion De Inventarios Finales.
+    plantilla_area('Validacion De Inventarios Finales')
+    print('\n')
+    #validacion_inventarios_finales()
+    LimpiarPantalla()
+    cedula_validacion_inventarios_finales(mtz_validacion_inventarios_finales)
 # Fin de la funcion Main.
 
 # Ejecucion del programa.
