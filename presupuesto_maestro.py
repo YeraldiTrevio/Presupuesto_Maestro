@@ -12,23 +12,23 @@ from plantillas import *
 
 # Variables y Lambas.
 LimpiarPantalla = lambda: os.system('clear')
-
+# Cedula 1
 mtz_presupuesto_ventas = [
     ['CL', 12000, 10000, 300.00, 320.00, 3600000, 3200000, 6800000],
     ['CE', 13500, 11800, 280.00, 310.00, 3780000, 3658000, 7438000],
     ['CR', 7000, 8500, 185.00, 200.00, 1295000, 1700000, 2995000]              
 ]
-
+# Cedula 2
 lista_saldo_Cliente_y_Flujo_Entradas = [
     [80000, 17233000, 17313000, 80000, 13786400, 13866400, 3446600] 
 ]
-
+# Cedula 3
 mtz_presupuesto_produccion = [
     ['CL', 12000, 10000, 10000, 6500, 22000, 16500, 10000, 10000, 12000, 6500, 18500],
     ['CE', 13500, 11800, 8500, 7500, 22000, 7500, 8500, 8500, 13500, 10800, 24300],
     ['CR', 7000, 8500, 6000, 5000, 13000, 13500, 6000, 6000, 7000, 7500, 14500]
 ]
-
+# Cedula 4
 mtz_requerimientos_materiales = [
     ['CL', 12000, 6500, 1.0, 1.0, 12000.0, 6500.0, 0.5, 0.5, 6000.0, 
     3250.0, 10.0, 10.0, 120000.0, 65000.0],
@@ -37,13 +37,12 @@ mtz_requerimientos_materiales = [
     ['CR', 7000, 7500, 2.0, 2.0, 14000.0, 15000.0, 1.0, 1.0, 7000.0
     , 7500.0, 5.0, 5.0, 35000.0, 37500.0]
 ]
-
 mtz_total_requerimientos_materiales = [
     ['Material A', 42200.0, 34460.0], 
     ['Material B', 21100.0, 17230.0], 
     ['Material C', 492500.0, 372500.0]
 ]
-
+# Cedula 5
 mtz_compra_materiales = [
     ['Material A', 42200.0, 34460.0, 5000, 3000, 47200.0, 37460.0,
      5000, 5000, 42200.0, 32460.0, 10.0, 12.0, 422000.0, 389520.0], 
@@ -52,7 +51,6 @@ mtz_compra_materiales = [
     ['Material C', 492500.0, 372500.0, 2000, 1800, 494500.0, 374300.0, 
      2000, 2000, 492500.0, 372300.0, 1.0, 2.0, 492500.0, 744600.0] 
 ]
-
 mtz_total_compra_materiales = [
     [956700.0, 1184310.0, 2141010.0]
 ]
@@ -94,12 +92,13 @@ mtz_gastos_operacion = [
 ]
 # Cedula 10
 mtz_costoUnitario_productosTerminados = [
-    ['CL', 12.0, 3.0, 2.0, 3.17, 18.0, 1.0, 0.5, 10.0, 2.0, 2.0,
-    12.0, 1.5, 20.0, 36.0, 6.34, 75.84],
-    ['CE', 12.0, 3.0, 2.0, 3.17, 18.0, 1.2, 0.6, 25.0, 1.0, 1.0,
-    14.4, 1.8, 50.0, 18.0, 3.17, 87.37],
-    ['CR', 12.0, 3.0, 2.0, 3.17, 18.0, 2.0, 1.0, 5.0, 1.5, 1.5, 
-    24.0, 3.0, 10.0, 27.0, 4.75, 68.75]
+    ['CL', 12.0, 3.0, 2.0, 3.17, 18.0, 1.0, 0.5, 10.0, 2.0, 2.0, 12.0, 1.5, 20.0, 36.0, 6.34, 75.84],
+    ['CE', 12.0, 3.0, 2.0, 3.17, 18.0, 1.2, 0.6, 25.0, 1.0, 1.0, 14.399999999999999, 1.7999999999999998,
+    50.0, 18.0, 3.17, 87.37],
+    ['CR', 12.0, 3.0, 2.0, 3.17, 18.0, 2.0, 1.0, 5.0, 1.5, 1.5, 24.0, 3.0, 10.0, 27.0, 4.755, 68.755]
+]
+# Cedula 11
+mtz_validacion_inventarios_finales = [
 ]
 # Fin de variables y lambdas.
 
@@ -569,28 +568,23 @@ def determinacion_costoUnitario_productosTerminados():
             cantidad_gif = cantidad_mano_obra
             break
         plantillas_Area_Msg_SL('Producto:',nombre_producto)
-        costo_unitario_materialA = round((costo_material_A * cantidad_material_A),2)
+        costo_unitario_materialA = (costo_material_A * cantidad_material_A)
         print(f'Costo unitario del material A: {costo_unitario_materialA}')
 
-        costo_unitario_materialB = round((costo_material_B * cantidad_material_B),2)
+        costo_unitario_materialB = (costo_material_B * cantidad_material_B)
         print(f'Costo unitario del material B: {costo_unitario_materialB}')
 
-        costo_unitario_materialC = round((costo_material_C * cantidad_material_C),2)
+        costo_unitario_materialC = (costo_material_C * cantidad_material_C)
         print(f'Costo unitario del material C: {costo_unitario_materialC}')
 
-        costo_unitario_mano_obra = round((costo_mano_obra * cantidad_mano_obra),2)
+        costo_unitario_mano_obra = (costo_mano_obra * cantidad_mano_obra)
         print(f'Costo unitario de la mano de obra: {costo_unitario_mano_obra}')
 
-        costo_unitario_gif = round((costo_gif * cantidad_gif),2)
+        costo_unitario_gif = (costo_gif * cantidad_gif)
         print(f'Costo unitario del G.I.F: {costo_unitario_gif}')
 
-        costo_unitario_producto= round(
-            (costo_unitario_materialA + 
-             costo_unitario_materialB + 
-             costo_unitario_materialC + 
-             costo_unitario_mano_obra + 
-             costo_unitario_gif)
-             ,2)
+        costo_unitario_producto= costo_unitario_materialA+costo_unitario_materialB+costo_unitario_materialC+costo_unitario_mano_obra + costo_unitario_gif
+             
         print(f'Costo unitario total: {costo_unitario_producto}')
 
         mtz_costoUnitario_productosTerminados.append([
@@ -602,5 +596,54 @@ def determinacion_costoUnitario_productosTerminados():
             costo_unitario_producto
         ])
     input('\nPresione enter para continuar...')
+    for i in mtz_costoUnitario_productosTerminados:
+        print(i)
 
 # Cedula 11
+def validacion_inventarios_finales():
+    # Extraccion de Inventario Final de Materiales.
+    plantilla_area('Inventario Final De Materiales')
+    unidades_material_A = mtz_compra_materiales[0][4]    
+    costo_material_A = mtz_compra_materiales[0][-3]
+
+    unidades_material_B = mtz_compra_materiales[1][4]
+    costo_material_B = mtz_compra_materiales[1][-3]
+
+    unidades_material_C = mtz_compra_materiales[2][4]
+    costo_material_C = mtz_compra_materiales[2][-3]
+    # Fin extraccion de Inventario Final de Materiales.
+    # Calculos inventario final de materiales.
+    costo_total_materialA = unidades_material_A * costo_material_A
+    print(f'Costo total del material A: {costo_total_materialA}')
+    costo_total_materialB = unidades_material_B * costo_material_B
+    print(f'Costo total del material B: {costo_total_materialB}')
+    costo_total_materialC = unidades_material_C * costo_material_C
+    print(f'Costo total del material C: {costo_total_materialC}')
+    inventario_final_materiales = costo_total_materialA + costo_total_materialB + costo_total_materialC
+    print(f'Inventario final de materiales: {inventario_final_materiales}')
+    mtz_validacion_inventarios_finales.append([
+        unidades_material_A, costo_material_A, costo_total_materialA,
+        unidades_material_B, costo_material_B, costo_total_materialB,
+        unidades_material_C, costo_material_C, costo_total_materialC,
+        inventario_final_materiales
+    ])
+    # Fin calculos inventario final de materiales.
+
+    # Extraccion de Inventario Final de Producto Terminado.
+    print('\n')
+    plantilla_area('Inventario Final De Producto Terminado')
+    inv_final_producto_terminado = 0
+    for producto in mtz_presupuesto_produccion:
+        i = mtz_presupuesto_produccion.index(producto)
+        for elemento in producto:
+            nombre_producto = mtz_presupuesto_produccion[i][0]
+            unidades_producto = mtz_presupuesto_produccion[i][4]
+            costo_unitario_producto = mtz_costoUnitario_productosTerminados[i][-1]
+            break
+        costo_total_producto = +(unidades_producto) * costo_unitario_producto
+        print(f'Producto: {nombre_producto}   Unidades: {unidades_producto}   \
+            Costo Unitario: {costo_unitario_producto}  Total:  {costo_total_producto}')
+        inv_final_producto_terminado += costo_total_producto
+        print(f'Inventario final de producto terminado: {inv_final_producto_terminado}')
+
+validacion_inventarios_finales()
