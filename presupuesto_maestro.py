@@ -723,5 +723,7 @@ def estado_costo_produccion_ventas(periodo_actual):
     costo_ventas = total_produccion_disponiles-inventario_final_productos_terminado
     print(f'Costo de ventas:                         \t\t${round(costo_ventas)}')
 
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
 
-estado_costo_produccion_ventas(2016)

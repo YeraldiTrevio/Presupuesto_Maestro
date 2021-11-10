@@ -107,6 +107,12 @@ def main():
     #validacion_inventarios_finales()
     LimpiarPantalla()
     cedula_validacion_inventarios_finales(mtz_validacion_inventarios_finales)
+
+    #* Estados Financieros
+    # Estado  De Costos De Produccion Y Ventas.
+    plantilla_area('Estado  De Costos De Produccion Y Ventas')
+    estado_costo_produccion_ventas(periodo_actual)
+    LimpiarPantalla()
 # Fin de la funcion Main.
 
 # Ejecucion del programa.
