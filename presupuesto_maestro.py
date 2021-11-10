@@ -112,6 +112,20 @@ mtz_validacion_inventarios_finales = [
     ['CR', 5000, 68.75015051173992, 343750.7525586996],
     [1491919.476219145]
 ]
+# Estado de costo de produccion y costo de ventas
+mtz_estado_costo_produccion_ventas = [
+    [45000.0, 2141010.0, 2186010.0, 47100.0,
+    2138910.0, 1350900.0, 263000.0, 3752810.0,
+    135000.0, 3887810.0, 1491919.476219145,
+    2395890.523780855]
+]
+# Estado De Resultados.
+mtz_estado_resultados = [
+    [17233000.0, 2395890.523780855, 14837109.476219146,
+    460330.0, 14376779.476219146,
+    5031872.8166767005, 1437677.9476219146,
+    7907228.711920531]
+]
 # Fin de variables y lambdas.
 
 #*Funciones de las cedulas.
@@ -132,6 +146,7 @@ def presupuesto_ventas():
 
     # Ingreso de los datos del presupuesto de ventas.
     plantilla_area('Presupuesto De Ventas')
+    total_ventas = 0
     for producto in range(productos):
         print(f"\n============== Producto {producto + 1} ==============")
         nombre = input('Ingresa el nombre del producto: ')
@@ -146,7 +161,7 @@ def presupuesto_ventas():
         importe_venta_2 = unidades_vender_2 * precio_venta_2
 
         importe_venta_total = importe_venta_1 + importe_venta_2
-
+        total_ventas += importe_venta_total
         mtz_presupuesto_ventas.append([
             nombre,
             unidades_vender_1, unidades_vender_2,
@@ -154,6 +169,7 @@ def presupuesto_ventas():
             importe_venta_1, importe_venta_2,
             importe_venta_total,
             ])
+    mtz_presupuesto_ventas.append([total_ventas])
     # Fin de ingreso de los datos del presupuesto de ventas.
     plantilla_Finalizacion_SaltoLinea()
     input('\nPresiona Enter Para Continuar.')
@@ -695,35 +711,82 @@ def estado_costo_produccion_ventas(periodo_actual):
     saldo_incial_materiales = float(input('\nIngresa el saldo inicial de materiales: \t\t$'))
     compras_materiales = mtz_total_compra_materiales[0][-1]
     print(f'Compras de materiales:                  \t\t${compras_materiales}')
-
     material_disponible = saldo_incial_materiales + compras_materiales
     print(f'Material disponible:                    \t\t${material_disponible}')
-
     inventario_final_materiales = mtz_validacion_inventarios_finales[0][-1]
     print(f'Inventario final de materiales:         \t\t${inventario_final_materiales}')
-
     materiales_utilizados = material_disponible - inventario_final_materiales
     print(f'Materiales utilizados:                  \t\t${materiales_utilizados}')
-
     mano_obra_directa = mtz_total_horas_y_MOD[-1][-1]
     print(f'Mano de obra directa:                   \t\t${mano_obra_directa}')
-
     gastos_fab_indirectos = mtz_gastos_indirectos_fab[0][-3]
     print(f'Gastos de fabricacion indirectos:       \t\t${gastos_fab_indirectos}')
-
     costo_produccion = materiales_utilizados + mano_obra_directa + gastos_fab_indirectos
     print(f'Costo de produccion:                    \t\t${costo_produccion}')
     inventario_incial_prod_terminados = float(input('\nIngresa el inventario inicial de productos terminados:  $'))
     total_produccion_disponiles = costo_produccion + inventario_incial_prod_terminados
     print(f'Total de produccion disponibles:        \t\t${total_produccion_disponiles}')
-
     inventario_final_productos_terminado = mtz_validacion_inventarios_finales[-1][-1]
     print(f'Inventario final de productos terminados: \t\t${round(inventario_final_productos_terminado,2)}')
-
     costo_ventas = total_produccion_disponiles-inventario_final_productos_terminado
     print(f'Costo de ventas:                         \t\t${round(costo_ventas)}')
+
+    mtz_estado_costo_produccion_ventas.append([
+        saldo_incial_materiales, compras_materiales, material_disponible,
+        inventario_final_materiales, materiales_utilizados, mano_obra_directa,
+        gastos_fab_indirectos, costo_produccion, inventario_incial_prod_terminados,
+        total_produccion_disponiles, inventario_final_productos_terminado, costo_ventas
+    ])
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
+
+# Estado De Resultados.
+def estado_resultados(periodo_actual):
+    plantilla_area(f'Estado De Resultados Del {periodo_actual}')
+
+    ventas = 0
+    for producto in mtz_presupuesto_ventas:
+        i = mtz_presupuesto_ventas.index(producto)
+        for e in producto:
+            ventas += mtz_presupuesto_ventas[i][-1]
+            break
+    print(f'Ventas:                                 \t\t${ventas}')
+
+    costo_ventas = mtz_estado_costo_produccion_ventas[-1][-1]
+    print(f'Costo de ventas:                        \t\t${round(costo_ventas,2)}')
+
+    utilidad_bruta = ventas - costo_ventas
+    print(f'Utilidad Bruta:                         \t\t${round(utilidad_bruta,2)}')
+
+    gastos_operacion = mtz_gastos_operacion[0][-1]
+    print(f'Gastos de operacion:                    \t\t${gastos_operacion}')
+
+    utilidad_operacion = utilidad_bruta - gastos_operacion
+    print(f'Utilidad de operacion:                  \t\t${round(utilidad_operacion,2)}')
+
+    isr = int(input('\nIngresa el porcentaje de ISR:                \t\t '))
+    isr = (isr/100) * utilidad_operacion
+    print(f'ISR:                                    \t\t${round(isr,2)}')
+
+    ptu = int(input('\nIngresa el porcentaje de P.U.T:              \t\t '))
+    ptu = (ptu/100) * utilidad_operacion
+    print(f'P.U.T:                                  \t\t${round(ptu,2)}')
+
+    utilidad_neta = utilidad_operacion - isr - ptu
+    print(f'Utilidad neta:                          \t\t${round(utilidad_neta,2)}')
+
+    mtz_estado_resultados.append([
+        ventas, costo_ventas, utilidad_bruta,
+        gastos_operacion, utilidad_operacion,
+        isr, ptu,
+        utilidad_neta
+    ])
 
     plantilla_Finalizacion_SaltoLinea()
     input('Presiona Enter Para Continuar.')
     LimpiarPantalla()
 
+# Estado De Flujo De efectivo.
+def estado_flujo_efectivo(periodo_actual):
+    pass
