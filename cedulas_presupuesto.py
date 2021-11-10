@@ -150,3 +150,4 @@ def cedula_compras_materiales(mtz_compra_materiales, mtz_total_compra_materiales
     
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
+
