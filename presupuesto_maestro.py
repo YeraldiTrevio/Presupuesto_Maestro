@@ -109,7 +109,8 @@ mtz_validacion_inventarios_finales = [
     [3000, 12.0, 36000.0, 2500, 3.0, 7500.0, 1800, 2.0, 3600.0, 47100.0],
     ['CL', 6500, 75.83353401565321, 492917.9711017459],
     ['CE', 7500, 87.36676700782661, 655250.7525586996],
-    ['CR', 5000, 68.75015051173992, 343750.7525586996]
+    ['CR', 5000, 68.75015051173992, 343750.7525586996],
+    [1491919.476219145]
 ]
 # Fin de variables y lambdas.
 
@@ -680,11 +681,47 @@ def validacion_inventarios_finales():
             nombre_producto,
             unidades_producto, costo_unitario_producto, 
             costo_total_producto])
+
+    mtz_validacion_inventarios_finales.append([inv_final_producto_terminado])
     plantilla_Finalizacion_SaltoLinea()
     input('Presiona Enter Para Continuar.')
     LimpiarPantalla()
 
 #* Presupuesto Financiero
 # Estado De Costo De Produccion Y Ventas.
-def estado_costo_produccion_ventas():
-    pass
+def estado_costo_produccion_ventas(periodo_actual):
+    plantilla_area(f'Estado De Costo De Produccion Y Ventas {periodo_actual}')
+
+    saldo_incial_materiales = float(input('\nIngresa el saldo inicial de materiales: \t\t$'))
+    compras_materiales = mtz_total_compra_materiales[0][-1]
+    print(f'Compras de materiales:                  \t\t${compras_materiales}')
+
+    material_disponible = saldo_incial_materiales + compras_materiales
+    print(f'Material disponible:                    \t\t${material_disponible}')
+
+    inventario_final_materiales = mtz_validacion_inventarios_finales[0][-1]
+    print(f'Inventario final de materiales:         \t\t${inventario_final_materiales}')
+
+    materiales_utilizados = material_disponible - inventario_final_materiales
+    print(f'Materiales utilizados:                  \t\t${materiales_utilizados}')
+
+    mano_obra_directa = mtz_total_horas_y_MOD[-1][-1]
+    print(f'Mano de obra directa:                   \t\t${mano_obra_directa}')
+
+    gastos_fab_indirectos = mtz_gastos_indirectos_fab[0][-3]
+    print(f'Gastos de fabricacion indirectos:       \t\t${gastos_fab_indirectos}')
+
+    costo_produccion = materiales_utilizados + mano_obra_directa + gastos_fab_indirectos
+    print(f'Costo de produccion:                    \t\t${costo_produccion}')
+    inventario_incial_prod_terminados = float(input('\nIngresa el inventario inicial de productos terminados:  $'))
+    total_produccion_disponiles = costo_produccion + inventario_incial_prod_terminados
+    print(f'Total de produccion disponibles:        \t\t${total_produccion_disponiles}')
+
+    inventario_final_productos_terminado = mtz_validacion_inventarios_finales[-1][-1]
+    print(f'Inventario final de productos terminados: \t\t${round(inventario_final_productos_terminado,2)}')
+
+    costo_ventas = total_produccion_disponiles-inventario_final_productos_terminado
+    print(f'Costo de ventas:                         \t\t${round(costo_ventas)}')
+
+
+estado_costo_produccion_ventas(2016)
