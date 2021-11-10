@@ -20,7 +20,7 @@ mtz_presupuesto_ventas = [
 ]
 # Cedula 2
 lista_saldo_Cliente_y_Flujo_Entradas = [
-   [8000.0, 17233000.0, 17241000.0, 8000.0, 13786400.0, 13794400.0, 3446600.0] 
+   [80000.0, 17233000.0, 17313000.0, 80000.0, 13786400.0, 13866400.0, 3446600.0]
 ]
 # Cedula 3
 mtz_presupuesto_produccion = [
@@ -125,6 +125,15 @@ mtz_estado_resultados = [
     460330.0, 14376779.476219146,
     5031872.8166767005, 1437677.9476219146,
     7907228.711920531]
+]
+# Estado De Flujo De Efectivo.
+mtz_estado_flujo_efectivo = [
+    [100000.0, 80000.0, 13786400.0, 
+    13866400.0, 13966400.0, 
+    33500.0, 1070505.0, 
+    1350900.0, 183000.0, 445330.0, 
+    85000.0, 50000.0, 
+    3218235.0, 10748165.0]
 ]
 # Fin de variables y lambdas.
 
@@ -789,4 +798,49 @@ def estado_resultados(periodo_actual):
 
 # Estado De Flujo De efectivo.
 def estado_flujo_efectivo(periodo_actual):
+    plantilla_area(f'Estado De Flujo De Efectivo Del {periodo_actual}')
+    saldo_incial_efectivo = float(input('\nIngresa el saldo inicial de efectivo: \t\t$'))
+    cobranza_anterior = lista_saldo_Cliente_y_Flujo_Entradas[0][3]
+    print(f'Cobranza anterior:                   \t\t${cobranza_anterior}')
+    cobranza_actual = lista_saldo_Cliente_y_Flujo_Entradas[0][4]
+    print(f'Cobranza actual:                     \t\t${cobranza_actual}')
+    total_entradas = cobranza_anterior + cobranza_actual
+    print(f'Total de entradas:                              \t\t${total_entradas}')
+    efectivo_disponible = +saldo_incial_efectivo + total_entradas
+    print(f'Efectivo disponible:                            \t\t${efectivo_disponible}')
+    print()
+    print('Salidas: ')
+    proveedores_actual =mtz_saldo_Proveedores_y_Flujo_Entradas[0][3]
+    print(f'Proveedores actual:                  \t\t${proveedores_actual}')
+    proveedores_anterior =mtz_saldo_Proveedores_y_Flujo_Entradas[0][4]
+    print(f'Proveedores anterior:                \t\t${proveedores_anterior}')
+    pago_mano_obra_directa = mtz_total_horas_y_MOD[-1][-1]
+    print(f'Pago de mano de obra directa:        \t\t${round(pago_mano_obra_directa,2)}')
+    pago_gtos_indirecto_fab = mtz_gastos_indirectos_fab[0][-3] - mtz_gastos_indirectos_fab[0][2]
+    print(f'Pago Gastos Indirectos Fabricacion:  \t\t${pago_gtos_indirecto_fab}')
+    pago_gtos_operacion = mtz_gastos_operacion[0][-1] - mtz_gastos_operacion[0][2]
+    print(f'Pago de gastos de operacion:         \t\t${pago_gtos_operacion}')
+    compra_activo_fijo = float(input('Ingresa el costo de compra de activo fijo: \t$'))
+    pago_isr_anterior = float(input('Ingresa el pago de ISR anterior: \t\t$'))
+    total_salidas = proveedores_actual + proveedores_anterior + pago_mano_obra_directa + pago_gtos_indirecto_fab\
+                    + pago_gtos_operacion + compra_activo_fijo + pago_isr_anterior
+    print(f'Total de salidas:                                      \t\t${round(total_salidas,2)}')
+    flujo_efectivo_actual = +efectivo_disponible - total_salidas
+    print(f'Flujo de efectivo actual:                              \t\t${round(flujo_efectivo_actual,2)}')
+
+    mtz_estado_flujo_efectivo.append([
+        saldo_incial_efectivo, cobranza_anterior, cobranza_actual,
+        total_entradas, efectivo_disponible,
+
+        proveedores_actual, proveedores_anterior,
+        pago_mano_obra_directa, pago_gtos_indirecto_fab, pago_gtos_operacion,
+        compra_activo_fijo, pago_isr_anterior,
+        total_salidas, flujo_efectivo_actual
+    ])
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
+
+# Balance General.
+def balance_general(periodo_actual):
     pass

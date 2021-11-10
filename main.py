@@ -118,6 +118,11 @@ def main():
     plantilla_area('Estado De Resultados')
     #estado_resultados(periodo_actual)
     LimpiarPantalla()
+
+    # Estado De Flujo De Efectivo.
+    plantilla_area('Estado De Flujo De Efectivo')
+    estado_flujo_efectivo(periodo_actual)
+    LimpiarPantalla()
 # Fin de la funcion Main.
 
 # Ejecucion del programa.
