@@ -645,5 +645,10 @@ def validacion_inventarios_finales():
             Costo Unitario: {costo_unitario_producto}  Total:  {costo_total_producto}')
         inv_final_producto_terminado += costo_total_producto
         print(f'Inventario final de producto terminado: {inv_final_producto_terminado}')
+        
+        mtz_validacion_inventarios_finales.append([
+            nombre_producto,
+            unidades_producto, costo_unitario_producto, 
+            costo_total_producto])
 
 validacion_inventarios_finales()
