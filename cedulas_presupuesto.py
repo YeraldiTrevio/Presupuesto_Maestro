@@ -25,7 +25,6 @@ def cedula_presupuesto_Ventas(mtz_presupuesto_ventas):
     # Fin de Creacion e impresion de data Frame
     plantilla_finalizacion_area_grande()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
 
 # Imprime la cedula 2.
 def cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_Flujo_Entradas):
@@ -49,7 +48,6 @@ def cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_
 
     plantilla_finalizacion_ExtraGrande()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
 
 #Imprime la cedula 3.
 def cedula_presupuesto_produccion(mtz_presupuesto_produccion):
@@ -75,7 +73,6 @@ def cedula_presupuesto_produccion(mtz_presupuesto_produccion):
     # Fin de Impresion de la cedula
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
 
 # Imprime la cedula 4.
 def cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_requerimientos_materiales):
@@ -118,7 +115,6 @@ def cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_req
             break
     plantilla_Finalizacion_SaltoLinea()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
     # Fin Recorrido mtz_total_requerimientos_materiales
 
 # Imprime la cedula 5.
@@ -156,7 +152,6 @@ def cedula_compras_materiales(mtz_compra_materiales, mtz_total_compra_materiales
     
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
 
 # Imprime la Cedula 6.
 def cedula_saldo_proveedores_y_flujo_salida(periodo_actual, lista_saldo_proveedores_y_Flujo_Salida):
@@ -180,7 +175,6 @@ def cedula_saldo_proveedores_y_flujo_salida(periodo_actual, lista_saldo_proveedo
 
     plantilla_finalizacion_ExtraGrande ()
     input ( '\n Presiona Enter Para Continuar.' )
-    LimpiarPantalla ()
 
 # Imprimir la cedula 7.
 def cedula_mano_obra_directa(mtz_mano_obra_directa,mtz_total_horas_y_MOD):
@@ -212,7 +206,6 @@ def cedula_mano_obra_directa(mtz_mano_obra_directa,mtz_total_horas_y_MOD):
     
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
 
 # Imprimir la cedula 8.
 def cedula_gastos_fabricacion(mtz_gastos_fabricacion):
@@ -239,7 +232,6 @@ def cedula_gastos_fabricacion(mtz_gastos_fabricacion):
 
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
 
 # Imprimir la cedula 9.
 def cedula_gastos_operacion(mtz_gastos_operacion):
@@ -261,7 +253,6 @@ def cedula_gastos_operacion(mtz_gastos_operacion):
 
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
 
 # Imprimir la cedula 10.
 def cedula_costoUnitario_productosTerminados(mtz_costoUnitario_productosTerminados):
@@ -285,7 +276,6 @@ def cedula_costoUnitario_productosTerminados(mtz_costoUnitario_productosTerminad
             break   
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
 
 # Impresion de la cedula 11.
 def cedula_validacion_inventarios_finales(mtz_validacion_inventarios_finales):
@@ -317,4 +307,25 @@ def cedula_validacion_inventarios_finales(mtz_validacion_inventarios_finales):
     print(f"Inventario final de producto terminado                            \t${round(mtz(-1,0),2)}")
     plantilla_finalizacion_area()
     input('\nPresiona Enter Para Continuar.')
-    LimpiarPantalla()
+
+# Estado De Costo De Produiccion Y Ventas.
+def cedula_estado_costo_produccion_ventas(mtz_estado_costo_produccion_ventas, periodo_actual):
+    # Funciones locales
+    def mtz(i,e):
+        return mtz_estado_costo_produccion_ventas[i][e]
+    plantilla_area(f'Estado De Costo De Produccion Y Ventas {periodo_actual}')
+
+    print(f'\nSaldo inicial de materiales:               \t\t${mtz(0,0)}')
+    print(f'Compras de materiales:                  \t\t${mtz(0,1)}')
+    print(f'Material disponible:                    \t\t${mtz(0,2)}')
+    print(f'Inventario final de materiales:         \t\t${mtz(0,3)}')
+    print(f'Materiales utilizados:                  \t\t${mtz(0,4)}')
+    print(f'Mano de obra directa:                   \t\t${mtz(0,5)}')
+    print(f'Gastos de fabricacion indirectos:       \t\t${mtz(0,6)}')
+    print(f'Costo de produccion:                    \t\t${mtz(0,7)}')
+    print(f'\ninventario inicial de productos terminados:        \t${mtz(0,8)}')
+    print(f'Total de produccion disponibles:        \t\t${mtz(0,9)}')
+    print(f'Inventario final de productos terminados: \t\t${round(mtz(0,10),2)}')
+    print(f'Costo de ventas:                         \t\t${round(mtz(0,11),2)}')
+
+    input('\nPresiona Enter Para Continuar...')
