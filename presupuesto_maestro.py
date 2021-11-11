@@ -854,4 +854,70 @@ def estado_flujo_efectivo(periodo_actual):
 
 # Balance General.
 def balance_general(periodo_actual):
-    pass
+    plantilla_area(f'Balance General Del {periodo_actual}')
+    print('ACTIVO')
+    print('Circulante')
+    efectivo = mtz_estado_flujo_efectivo[-1][-1]
+    print(f'Efectivo:    \t\t\t  ${efectivo}')
+    clientes = lista_saldo_Cliente_y_Flujo_Entradas[-1][-1]
+    print(f'Clientes:    \t\t\t  ${clientes}')
+    deudores_diversos = float(input('Deudodres Diversos:\t\t  $'))
+    funcionarios_empleados = float(input('Funcionarios y Empleados: \t  $'))
+    inventario_materiales = mtz_validacion_inventarios_finales[0][-1]
+    print(f'Inventario Materiales: \t\t  ${inventario_materiales}')
+    inventario_producto_terminado = mtz_validacion_inventarios_finales[-1][-1]
+    print(f'Inventario Producto Terminado: \t  ${round(inventario_producto_terminado,2)}')
+    total_activo_circulante = efectivo + clientes + deudores_diversos \
+         + funcionarios_empleados + inventario_materiales + inventario_producto_terminado
+    print(f'Total Activo Circulante:            \t\t${round(total_activo_circulante,2)}')
+
+    print('\n No Circulante')
+    terreno = float(input('Terreno: \t\t\t  $'))
+    planta_equipo = float(input('Planta y Equipo: \t\t  $'))
+    depreciacion_acum = float(input('Ingresa Depreciacion Acumulada:\t  $'))
+    depreciacion_acum = -(depreciacion_acum + mtz_gastos_indirectos_fab[0][2] \
+        + mtz_gastos_operacion[0][2])
+    print(f'Depreciacion Acumulada:\t\t  ${depreciacion_acum}')
+    total_activo_no_circulante = terreno + planta_equipo + depreciacion_acum
+    print(f'Total Activo Circulante:            \t\t${round(total_activo_no_circulante,2)}')
+    
+    total_activo = total_activo_circulante + total_activo_no_circulante
+    print(f'\nTotal Activo:                          \t\t${round(total_activo,2)}')
+
+    print('\nPASIVO')
+    print('Corto Plazo')
+    proveedores = mtz_saldo_Proveedores_y_Flujo_Entradas[0][-1]
+    print(f'Proveedores:\t\t\t ${proveedores}')
+    documentos_pagar = float(input('Documentos a Pagar:\t\t $'))
+    isr_pagar = mtz_estado_resultados[0][-3]
+    print(f'ISR a Pagar:\t\t\t ${round(isr_pagar,2)}')
+    ptu_pagar = mtz_estado_resultados[0][-2]
+    print(f'PTU a Pagar:\t\t\t ${round(ptu_pagar,2)}')
+    total_corto_plazo = proveedores + documentos_pagar + isr_pagar + ptu_pagar
+    print(f'Total Corto Plazo:                     \t\t${round(total_corto_plazo,2)}')
+
+    print('\nLargo Plazo')
+    prestamos_bancarios = float(input('Prestamos Bancarios:\t\t $'))
+    total_largo_plazo = prestamos_bancarios
+    print(f'Total Largo Plazo:                     \t\t${round(total_largo_plazo,2)}')
+
+    total_pasivo = total_corto_plazo + total_largo_plazo
+    print(f'\nTotal Pasivo:                          \t\t${round(total_pasivo,2)}')
+
+    print('\nCAPITAL CONTABLE')
+    capital_contribuido = float(input('Capital Contribuido:\t\t $'))
+    capital_ganado = float(input('Capital Ganado:   \t\t $'))
+    utilidad_ejercicio = mtz_estado_resultados[0][-1]
+    print(f'Utilidad Ejercicio:  \t\t ${round(utilidad_ejercicio,2)}')
+    total_capital = capital_contribuido + capital_ganado + utilidad_ejercicio
+    print(f'\nTotal Capital Contable                 \t\t${round(total_capital,2)}')
+
+    suma_pasivo_capital = total_pasivo + total_capital
+    print(f'\nSuma Pasivo Y Capital                  \t\t${round(suma_pasivo_capital,2)}')
+    plantilla_finalizacion_area()
+
+    plantilla_Finalizacion_SaltoLinea()
+    input('Presiona Enter Para Continuar.')
+    LimpiarPantalla()
+
+# Fin de las funciones.
