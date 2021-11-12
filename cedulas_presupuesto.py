@@ -349,7 +349,29 @@ def cedula_estado_resultados(mtz_estado_resultados, periodo_actual):
 
 # Estado De Flujo De Efectivo.
 def cedula_estado_flujo_efectivo(mtz_estado_flujo_efectivo, periodo_actual):
-    pass
+    # Funciones locales
+    def mtz(i,e):
+        return mtz_estado_flujo_efectivo[i][e]
+    (f'Estado De Flujo de Efectivo {periodo_actual}')
+
+    print(f'\nSaldo inicial de efectivo:               \t\t${mtz(0,0)}')
+    print(f'Entradas:')
+    print(f'Cobranza 2015:                              \t\t${mtz(0,1)}')
+    print(f'Cobranza 2016:                               \t\t${mtz(0,2)}')
+    print(f'Total de entradas:                            \t\t${mtz(0,3)}')
+    print(f'Efectivo disponible:                           \t\t${mtz(0,4)}')
+    print(f'Salidas:')
+    print(f'Proveedores 2015:                              \t\t${mtz(0,5)}')
+    print(f'Proveedores 2016:                                \t${mtz(0,6)}')
+    print(f'Pago mano de obra directa:               \t\t${mtz(0,7)}')
+    print(f'Pago gastos indirectos de fabricacion:   \t\t${mtz(0,8)}')
+    print(f'Pago de gastos de operacion:             \t\t${mtz(0,9)}')
+    print(f'Compra de activo fijo (maquinaria):      \t\t${mtz(0,10)}')
+    print(f'Pago ISR 2015:                           \t\t${mtz(0,11)}')
+    print(f'Total de salidas:                        \t\t${mtz(0,12)}')
+    print(f'Flujo de efectivo actual:                \t\t${mtz(0,13)}')
+
+    input('\nPresiona Enter Para Continuar...')
 
 # Balance General.
 def cedula_balance_general(mtz_balance_general, periodo_actual):
