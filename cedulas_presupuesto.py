@@ -329,3 +329,28 @@ def cedula_estado_costo_produccion_ventas(mtz_estado_costo_produccion_ventas, pe
     print(f'Costo de ventas:                         \t\t${round(mtz(0,11),2)}')
 
     input('\nPresiona Enter Para Continuar...')
+
+# Estado De Resultados.
+def cedula_estado_resultados(mtz_estado_resultados, periodo_actual):
+    # Funciones locales
+    def mtz(i,e):
+        return mtz_estado_resultados[i][e]
+    plantilla_area(f'Estado De Costo De Produccion Y Ventas {periodo_actual}')
+    print(f'Ventas:                                 \t\t${mtz(0,0)}')
+    print(f'Costo de ventas:                        \t\t${round(mtz(0,1),2)}')
+    print(f'Utilidad Bruta:                         \t\t${round(mtz(0,2),2)}')
+    print(f'Gastos de operacion:                    \t\t${mtz(0,3)}')
+    print(f'Utilidad de operacion:                  \t\t${round(mtz(0,4),2)}')
+    print(f'ISR:                                    \t\t${round(mtz(0,5),2)}')
+    print(f'P.T.U:                                  \t\t${round(mtz(0,6),2)}')
+    print(f'Utilidad neta:                          \t\t${round(mtz(0,7),2)}')
+
+    input('Presione una tecla para continuar...')
+
+# Estado De Flujo De Efectivo.
+def cedula_estado_flujo_efectivo(mtz_estado_flujo_efectivo, periodo_actual):
+    pass
+
+# Balance General.
+def cedula_balance_general(mtz_balance_general, periodo_actual):
+    pass

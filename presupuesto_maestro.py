@@ -135,6 +135,18 @@ mtz_estado_flujo_efectivo = [
     85000.0, 50000.0, 
     3218235.0, 10748165.0]
 ]
+# Balance General.
+mtz_balance_general = [
+    [10748165.0, 3446600.0, 35000.0, 
+    10500.0, 47100.0, 1491919.476219145, 
+    15779284.476219146, 905000.0, 1585000.0, 
+    -745000.0, 1745000.0, 17524284.476219147, 
+    1070505.0, 95000.0, 5031872.8166767005, 
+    1437677.9476219146, 7635055.764298615, 
+    120000.0, 120000.0, 7755055.764298615, 
+    1500000.0, 362000.0, 7907228.711920531, 
+    9769228.71192053, 17524284.476219144]
+]
 # Fin de variables y lambdas.
 
 #*Funciones de las cedulas.
@@ -916,8 +928,34 @@ def balance_general(periodo_actual):
     print(f'\nSuma Pasivo Y Capital                  \t\t${round(suma_pasivo_capital,2)}')
     plantilla_finalizacion_area()
 
+    mtz_balance_general.append([
+        efectivo,
+        clientes,
+        deudores_diversos,
+        funcionarios_empleados,
+        inventario_materiales,
+        inventario_producto_terminado,
+        total_activo_circulante,
+        terreno,
+        planta_equipo,
+        depreciacion_acum,
+        total_activo_no_circulante,
+        total_activo,
+        proveedores,
+        documentos_pagar,
+        isr_pagar,
+        ptu_pagar,
+        total_corto_plazo,
+        prestamos_bancarios,
+        total_largo_plazo,
+        total_pasivo,
+        capital_contribuido,
+        capital_ganado,
+        utilidad_ejercicio,
+        total_capital,
+        suma_pasivo_capital
+    ])
     plantilla_Finalizacion_SaltoLinea()
     input('Presiona Enter Para Continuar.')
     LimpiarPantalla()
-
 # Fin de las funciones.

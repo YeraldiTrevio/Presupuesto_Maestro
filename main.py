@@ -125,20 +125,26 @@ def main():
     LimpiarPantalla()
     cedula_estado_costo_produccion_ventas(mtz_estado_costo_produccion_ventas, periodo_actual)
     LimpiarPantalla()
-    
+
     # Estado De Resultados.
     plantilla_area('Estado De Resultados')
     #estado_resultados(periodo_actual)
+    LimpiarPantalla()
+    cedula_estado_resultados(mtz_estado_resultados, periodo_actual)
     LimpiarPantalla()
 
     # Estado De Flujo De Efectivo.
     plantilla_area('Estado De Flujo De Efectivo')
     estado_flujo_efectivo(periodo_actual)
     LimpiarPantalla()
+    cedula_estado_flujo_efectivo(mtz_estado_flujo_efectivo, periodo_actual)
+    LimpiarPantalla()
 
     # Balance General.
     plantilla_area('Balance General')
     balance_general(periodo_actual)
+    LimpiarPantalla()
+    cedula_balance_general(mtz_balance_general, periodo_actual)
     LimpiarPantalla()
 # Fin de la funcion Main.
 
