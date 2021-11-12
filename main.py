@@ -33,7 +33,7 @@ def main():
     # Cedula 1.
     # Presupuesto de ventas
     plantilla_area('Presupuesto De Ventas')
-    presupuesto_ventas()
+    #presupuesto_ventas()
     LimpiarPantalla()
     cedula_presupuesto_Ventas(mtz_presupuesto_ventas)
     LimpiarPantalla()
@@ -41,7 +41,7 @@ def main():
     # Cedula 2.
     # Determinacion Del Saldo De Clientes y Flujo De Efectivo
     plantilla_area('Determinacion Del Saldo De Clientes y Flujo De Efectivo')
-    determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual)
+    #determinacion_Saldo_Cliente_y_Flujo_Entradas(periodo_actual)
     LimpiarPantalla()
     cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_Flujo_Entradas)
     LimpiarPantalla()
@@ -49,7 +49,7 @@ def main():
     # Cedula 3.
     # Presupuesto de produccion
     plantilla_mediana('Presupuesto De Produccion')
-    presupuesto_produccion()
+    #presupuesto_produccion()
     LimpiarPantalla()
     cedula_presupuesto_produccion(mtz_presupuesto_produccion)
     LimpiarPantalla()
@@ -57,7 +57,7 @@ def main():
     # Cedula 4.
     # Presupuesto de requerimiento de materiales
     plantilla_area('Presupuesto De Requerimiento De Materiales')
-    requerimientos_materiales()
+    #requerimientos_materiales()
     LimpiarPantalla()
     cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_requerimientos_materiales)
     LimpiarPantalla()
@@ -65,7 +65,7 @@ def main():
     # Cedula 5.
     # Presupuesto de compras de materiales
     plantilla_area('Presupuesto De Compras De Materiales')
-    presupuesto_compra_materiales()
+    #presupuesto_compra_materiales()
     LimpiarPantalla()
     cedula_compras_materiales(mtz_compra_materiales, mtz_total_compra_materiales)
     LimpiarPantalla()
@@ -73,14 +73,15 @@ def main():
     # Cedula 6.
     # Determinacion Del Saldo De Proveedores y Flujo De Efectivo
     plantilla_area('Determinacion Del Saldo De Proveedores y Flujo De Efectivo')
-    determinacion_saldo_proveedores_flujo_salida(periodo_actual)
+    #determinacion_saldo_proveedores_flujo_salida(periodo_actual)
     LimpiarPantalla()
     cedula_saldo_proveedores_y_flujo_salida(periodo_actual, mtz_saldo_Proveedores_y_Flujo_Entradas)
+    LimpiarPantalla()
 
     # Cedula 7.
     # Presupuesto de Mano de Obra Directa
     plantilla_area('Presupuesto De Mano De Obra Directa')
-    mano_obra_directa()
+    #mano_obra_directa()
     LimpiarPantalla()
     cedula_mano_obra_directa(mtz_mano_obra_directa,mtz_total_horas_y_MOD)
     LimpiarPantalla()
@@ -88,7 +89,7 @@ def main():
     # Cedula 8.
     # Presupuesto Gastos Indirectos De Fabricacion
     plantilla_area('Presupuesto Gastos Indirectos De Fabricacion')
-    gastos_indirectos_fabricacion()
+    #gastos_indirectos_fabricacion()
     LimpiarPantalla()
     cedula_gastos_fabricacion(mtz_gastos_indirectos_fab)
     LimpiarPantalla()
@@ -96,7 +97,7 @@ def main():
     # Cedula 9.
     # Presupuesto De Gastos De Operacion.
     plantilla_area('Presupuesto De Gastos De Operacion')
-    presupuesto_gastos_operacion()
+    #presupuesto_gastos_operacion()
     LimpiarPantalla()
     cedula_gastos_operacion(mtz_gastos_operacion)
     LimpiarPantalla()
@@ -104,7 +105,7 @@ def main():
     # Cedula 10.
     # Determinacion Del Costo Unitario De Productos Terminados.
     plantilla_area('Determinacion Del Costo Unitario De Productos Terminados')
-    determinacion_costoUnitario_productosTerminados()
+    #determinacion_costoUnitario_productosTerminados()
     LimpiarPantalla()
     cedula_costoUnitario_productosTerminados(mtz_costoUnitario_productosTerminados)
     LimpiarPantalla()
@@ -113,7 +114,7 @@ def main():
     # Validacion De Inventarios Finales.
     plantilla_area('Validacion De Inventarios Finales')
     print('\n')
-    validacion_inventarios_finales()
+    #validacion_inventarios_finales()
     LimpiarPantalla()
     cedula_validacion_inventarios_finales(mtz_validacion_inventarios_finales)
     LimpiarPantalla()
@@ -121,28 +122,28 @@ def main():
     #* Estados Financieros
     # Estado  De Costos De Produccion Y Ventas.
     plantilla_area('Estado  De Costos De Produccion Y Ventas')
-    estado_costo_produccion_ventas(periodo_actual)
+    #estado_costo_produccion_ventas(periodo_actual)
     LimpiarPantalla()
     cedula_estado_costo_produccion_ventas(mtz_estado_costo_produccion_ventas, periodo_actual)
     LimpiarPantalla()
 
     # Estado De Resultados.
     plantilla_area('Estado De Resultados')
-    estado_resultados(periodo_actual)
+    #estado_resultados(periodo_actual)
     LimpiarPantalla()
     cedula_estado_resultados(mtz_estado_resultados, periodo_actual)
     LimpiarPantalla()
 
     # Estado De Flujo De Efectivo.
     plantilla_area('Estado De Flujo De Efectivo')
-    estado_flujo_efectivo(periodo_actual)
+    #estado_flujo_efectivo(periodo_actual)
     LimpiarPantalla()
     cedula_estado_flujo_efectivo(mtz_estado_flujo_efectivo, periodo_actual)
     LimpiarPantalla()
 
     # Balance General.
     plantilla_area('Balance General')
-    balance_general(periodo_actual)
+    #balance_general(periodo_actual)
     LimpiarPantalla()
     cedula_balance_general(mtz_balance_general, periodo_actual)
     LimpiarPantalla()
