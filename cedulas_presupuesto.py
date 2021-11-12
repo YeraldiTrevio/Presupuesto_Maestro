@@ -335,7 +335,8 @@ def cedula_estado_resultados(mtz_estado_resultados, periodo_actual):
     # Funciones locales
     def mtz(i,e):
         return mtz_estado_resultados[i][e]
-    plantilla_area(f'Estado De Costo De Produccion Y Ventas {periodo_actual}')
+    plantilla_area(f'Estado De Resultados {periodo_actual}')
+    print()
     print(f'Ventas:                                 \t\t${mtz(0,0)}')
     print(f'Costo de ventas:                        \t\t${round(mtz(0,1),2)}')
     print(f'Utilidad Bruta:                         \t\t${round(mtz(0,2),2)}')
@@ -352,7 +353,7 @@ def cedula_estado_flujo_efectivo(mtz_estado_flujo_efectivo, periodo_actual):
     # Funciones locales
     def mtz(i,e):
         return mtz_estado_flujo_efectivo[i][e]
-    (f'Estado De Flujo de Efectivo {periodo_actual}')
+    plantilla_area(f'Estado De Flujo De Efectivo {periodo_actual}')
 
     print(f'\nSaldo inicial de efectivo:               \t\t${mtz(0,0)}')
     print(f'Entradas:')
@@ -375,4 +376,42 @@ def cedula_estado_flujo_efectivo(mtz_estado_flujo_efectivo, periodo_actual):
 
 # Balance General.
 def cedula_balance_general(mtz_balance_general, periodo_actual):
-    pass
+    #Funciones Locales
+    def mtz(i,e):
+        return mtz_balance_general [i][e]
+    plantilla_area(f'Balance General {periodo_actual}')
+    print()
+    print('ACTIVO')
+    print('Circulante') 
+    print(f'\nEfectivo:                                   \t\t${round(mtz(0,0),2)}')
+    print(f'Clientes:                                     \t\t${round(mtz(0,1),2)}')
+    print(f'Deudores Diversos:                            \t\t${round(mtz(0,2),2)}')
+    print(f'Funcionarios y Empelados:                     \t\t${round(mtz(0,3),2)}')
+    print(f'Inventario de Materiales:                     \t\t${round(mtz(0,4),2)}')
+    print(f'Inventario de Producto Terminado:             \t\t${round(mtz(0,5),2)}')
+    print(f'\nTotal de Activos Circulantes:               \t\t${round(mtz(0,6),2)}')
+    print('No Circulante')
+    print(f'Terreno:                      \t\t${round(mtz(0,7),2)}')
+    print(f'Planta y equipo:              \t\t${round(mtz(0,8),2)}')
+    print(f'Depreciación Acumulada:       \t\t${round(mtz(0,9),2)}')
+    print(f'Total Activos Circulantes:                     \t\t${round(mtz(0,10),2)}')
+    print(f'ACTIVO TOTAL:                                  \t\t${round(mtz(0,11),2)}')
+    print(f'PASIVO')
+    print('Corto Plazo')
+    print(f'Proveedores:                  \t\t${round(mtz(0,12),2)}')
+    print(f'Documentos por Pagar:         \t\t${round(mtz(0,13),2)}')
+    print(f'ISR por Pagar:                \t\t${round(mtz(0,14),2)}')
+    print(f'P.T.U por Pagar:              \t\t${round(mtz(0,15),2)}')
+    print(f'Total de Pasivo Corto Plazo:                    \t\t${round(mtz(0,16),2)}')
+    print(f'Largo Plazo')
+    print(f'Préstamos bancarios:          \t\t${round(mtz(0,17),2)}')
+    print(f'Total de Pasivo Corto Plazo:                    \t\t${round(mtz(0,18),2)}')
+    print(f'PASIVO TOTAL:                                   \t\t${round(mtz(0,19),2)}')
+    print('CAPITAL CONTABLE')
+    print(f'Capital contribuido:           \t\t${round(mtz(0,20),2)}')
+    print(f'Capital Ganado:                \t\t${round(mtz(0,21),2)}')
+    print(f'Utilidad del ejercicio:        \t\t${round(mtz(0,22),2)}')
+    print(f'Total de Capital Contable:                       \t\t${round(mtz(0,23),2)}')
+    print(f'SUMA DE PASIVO Y CAPITAL:                        \t\t${round(mtz(0,24),2)}')
+
+    input('Presiona Enter Para Continuar...')

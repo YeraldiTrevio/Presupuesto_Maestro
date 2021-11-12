@@ -48,7 +48,6 @@ def plantilla_Finalizacion_SaltoLinea():
     print("\n=================================================================================\n")
 # Fin plantillas con salto de linea
 
-
 # Menu de cedula 10.
 def menu_cedula_10():
     print('\n================= Menu De Cedulas =================')
@@ -58,5 +57,4 @@ def menu_cedula_10():
     print('4. Presupuesto De Gastos Indirectos de Fabricacion.')
     print('5. Limpiar La Pantalla.')
     print('X. No Mostrar Cedulas.')
-
   

@@ -135,17 +135,55 @@ def main():
 
     # Estado De Flujo De Efectivo.
     plantilla_area('Estado De Flujo De Efectivo')
-    estado_flujo_efectivo(periodo_actual)
+    #estado_flujo_efectivo(periodo_actual)
     LimpiarPantalla()
     cedula_estado_flujo_efectivo(mtz_estado_flujo_efectivo, periodo_actual)
     LimpiarPantalla()
 
     # Balance General.
     plantilla_area('Balance General')
-    balance_general(periodo_actual)
+    #balance_general(periodo_actual)
     LimpiarPantalla()
     cedula_balance_general(mtz_balance_general, periodo_actual)
     LimpiarPantalla()
+
+    print('\n¿Desea Mostrar El Resumen De Las Cedulas?')
+    print('1. Si')
+    print('2. No')
+    opcion = input('>>>>>>>>> ')
+    if opcion == '1':
+        cedula_presupuesto_Ventas(mtz_presupuesto_ventas)
+        cedula_Saldo_Cliente_y_Flujo_Entradas(periodo_actual, lista_saldo_Cliente_y_Flujo_Entradas)
+        cedula_presupuesto_produccion(mtz_presupuesto_produccion)
+        cedula_requerimientos_materiales(mtz_requerimientos_materiales,mtz_total_requerimientos_materiales)
+        cedula_compras_materiales(mtz_compra_materiales, mtz_total_compra_materiales)
+        cedula_saldo_proveedores_y_flujo_salida(periodo_actual, mtz_saldo_Proveedores_y_Flujo_Entradas)
+        cedula_mano_obra_directa(mtz_mano_obra_directa,mtz_total_horas_y_MOD)
+        cedula_gastos_fabricacion(mtz_gastos_indirectos_fab)
+        cedula_gastos_operacion(mtz_gastos_operacion)
+        cedula_costoUnitario_productosTerminados(mtz_costoUnitario_productosTerminados)
+        cedula_validacion_inventarios_finales(mtz_validacion_inventarios_finales)
+        cedula_estado_costo_produccion_ventas(mtz_estado_costo_produccion_ventas, periodo_actual)
+        cedula_estado_resultados(mtz_estado_resultados, periodo_actual)
+        cedula_estado_flujo_efectivo(mtz_estado_flujo_efectivo, periodo_actual)
+        cedula_balance_general(mtz_balance_general, periodo_actual)
+        print('\n¿Desea Limpiar La Consola Y Salir Del Programa?')
+        print('1. Si')
+        print('2. No')
+        opcion = input('>>>>>>>>> ')
+        if opcion == '1':
+            LimpiarPantalla()
+            print('\nGracias Por Usar El Programa.')
+            presentacion_programa()
+        else:
+            exit()
+    else:
+        print('\n')
+        print('Presione Enter Para Continuar')
+        input()
+        LimpiarPantalla()
+        presentacion_programa()
+        exit()
 # Fin de la funcion Main.
 
 # Ejecucion del programa.
